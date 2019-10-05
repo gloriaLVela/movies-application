@@ -1,5 +1,10 @@
-import {deleteMovie, moveData, getMovieDB} from './api';
+
 import {removeSpinner} from "./manageDOM";
+
+/**
+ *
+ * Purpose : build the cards for the movie
+ */
 
 /**
  *
@@ -9,12 +14,22 @@ import {removeSpinner} from "./manageDOM";
 let includeMovieGenre = "";
 let includeMovieRatings = "";
 
+import { addDeleteButtonCard, addUpdateButtonCard} from './add-listeners';
+
+/**
+ * Byuld the movie d=card
+ * @param title -- movie title
+ * @param rating -- movie rating (1 -5 stars)
+ * @param id -- movie id
+ * @param urlPoster -- Movie poster URL
+ * @returns {string}
+ */
 
 function buildMovieCard(title, rating, id, urlPoster) {
     let html = "";
-    html += `<div class="card border-0" style="width: 12rem;">`;
-    html += `<h5 class="card-title  h3 text-center" > ${title} </h5>`;
-    html += `<div card="card-img-top"><img src="${urlPoster}" id="img${id}" style="width: 100%; height: 100%"> </div>`;
+    html += `<div class="card border-0">`;
+    // html += `<h5 class="card-title  h3 text-center" > ${title} </h5>`;
+    html += `<div card="card-img-top" id="div-img"><img src="${urlPoster}" id="img${id}" > </div>`;
 
     let starHTML = "";
 
@@ -34,10 +49,16 @@ function buildMovieCard(title, rating, id, urlPoster) {
     return html;
 }
 
+/**
+ *
+ * Include the current movie
+ *
+ * @param movieGenre -- movie genre
+ * @param movieRated -- movie rating (PG, PG-13, R, Approved)
+ * @returns {boolean} In
+ */
 function includeThisMovie(movieGenre, movieRated) {
-    //
-    // console.log(movieGenre);
-    // console.log(movieRated);
+
     let includeMovie = false;
 
     let movieGenres = movieGenre;
@@ -68,6 +89,10 @@ function includeThisMovie(movieGenre, movieRated) {
     return includeMovie;
 }
 
+/**
+ * Save the current search
+ * @param e
+ */
 export const saveSearchCriteria = (e) => {
     e.preventDefault(); // don't submit the form, we just want to update the data
     includeMovieGenre = document.getElementById('selectedGenre').value;
@@ -75,6 +100,10 @@ export const saveSearchCriteria = (e) => {
 
 }
 
+/**
+ * Display the movie
+ * @param movies -- list of movies
+ */
 export function displayMovies(movies) {
 
 
@@ -103,52 +132,29 @@ export function displayMovies(movies) {
 
     /**Display movies on screen*/
     document.getElementById('movie-list').innerHTML = html;
+   // console.log(html);
 
     /**Add Event listeners for the delete and the update buttons included in the cards */
-
     for (let i = 0; i < idArray.length; i++) {
-        document.getElementById(`delete${idArray[i]}`).addEventListener('click', event => {
-            /** Display the delete message */
-
-            //console.log(document.getElementById('myModal'));
-            //document.getElementById('myModal').aria-hidden false);
-            $("#myModal").modal('toggle');
-            document.getElementById("deleteMovieInformation").innerText = "Do you want to delete the movie " + titleArray[i] + "?";
-            //document.getElementById('deleteMovie').value == "false";
-            $('#myModal').on('shown.bs.modal', function () {
-                //document.getElementById("deleteMovieInformation").innerText = "Do you want to delete the movie " + titleArray[i] + "?";
-                let deleteThisMovie = (document.getElementById('deleteMovie').value == "true");
-                console.log(document.getElementById('deleteMovie').value);
-                console.log(deleteThisMovie);
-                if (deleteThisMovie) {
-                    let elem = document.getElementById(`movie${idArray[i]}`);
-                    elem.parentNode.removeChild(elem);
-                    deleteMovie(idArray[i]);
-                }
-            });
-
-
-        });
-    }
-
-    //update event listener
-    for (let i = 0; i < idArray.length; i++) {
-        document.getElementById(`update${idArray[i]}`).addEventListener('click', event => {
-            document.getElementById('update-form').style.display = 'block';
-            moveData(idArray[i]);
-        });
+        addDeleteButtonCard(idArray[i], titleArray[i]);
+        addUpdateButtonCard(idArray[i]);
     }
 
 }
 
+/**
+ *
+ * Display the movie
+ * @param movie -- selected movie
+ * @returns {number}
+ */
 
 export function displayMovie(movie) {
-    //console.log(movie);
-    // let movieInfo = getMovieDB(movie);
+
     let {title, rating, id, urlPoster, genre, movieRated} = movie[0];
 
     let movieCardHTML = "";
-    console.log('Display movie ' + title);
+    //console.log('Display movie ' + title);
 
     /**
      *  Movie going to be displayed?
@@ -173,40 +179,23 @@ export function displayMovie(movie) {
 
         } else {
             /**
-             * Creat the card for the new movie and add it to the html
+             * Create the card for the new movie and add it to the html
              */
             movieCardHTML = ` <div class="col-md-4 card" id="movie${id}">`;
             movieCardHTML += buildMovieCard(title, rating, id, urlPoster);
             movieCardHTML += `</div >`;
             //console.log(movieCardHTML);
             document.getElementById('movie-list').innerHTML += movieCardHTML;
-
-
             /**Add Event listeners for the delete and the update buttons included in the cards */
+            addDeleteButtonCard(id, title);
+            addUpdateButtonCard(id);
 
-            document.getElementById(`delete${id}`).addEventListener('click', event => {
-                $("#myModal").modal();
-                document.getElementById("deleteMovieInformation").innerText = "Do you want to delete the movie " + title + "?";
-
-                let deleteThisMovie = (document.getElementById('deleteMovie').value == "true");
-               console.log(deleteThisMovie);
-                if (deleteThisMovie) {
-                    let elem = document.getElementById(`movie${id}`);
-                    elem.parentNode.removeChild(elem);
-                    deleteMovie(id);
-                }
-            });
-
-            //update event listener
-            document.getElementById(`update${id}`).addEventListener('click', event => {
-                document.getElementById('update-form').style.display = 'block';
-                moveData(id);
-            });
         }
-
+        ;
 
     } else {
         /** Add message at the bottom of the screen**/
+        return 0;
     }
 
 

@@ -5,6 +5,12 @@ import {displayMovie} from "./buildHTML";
 
 /**
  *
+ * Purpose: Handle the api calls to the movie db inside the db.json
+ */
+
+
+/**
+ *
  * Change the movie title to title case
  */
 function changeTitleCase(elementName) {
@@ -51,11 +57,6 @@ const addMovie = (e) => {
     let rating = document.getElementById('rating').value;
     let title = changeTitleCase('movie-name');
 
-    // let title = document.getElementById('movie-name').value.toLowerCase()
-    //     .split(' ')
-    //     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-    //     .join(' ');
-
     clearAddMovie();
     let id = 0;
     fetch('/api/movies')
@@ -78,7 +79,7 @@ const addMovie = (e) => {
     let movieRated = "";
     let currentGenre = "";
     let year = "";
-    removeSpinner();
+    //removeSpinner();
     getMovieInfoOmdbAPI(title).then((data) => {
         //console.log(data);
         urlPoster = data["Poster"];
@@ -86,7 +87,9 @@ const addMovie = (e) => {
         currentGenre = data["Genre"];
         year = data["Year"];
 
-        let genre = currentGenre.split(",");
+        let genre = "";
+
+        if (currentGenre != undefined) currentGenre.split(",");
         let title = data["Title"];
 
         // Create the new movie object
@@ -115,7 +118,9 @@ const addMovie = (e) => {
         fetch(url, options)
             .then(response => response.json())
             .then(newMovie => getMovieDB(newMovie.title)
-                    .then(newMovie => displayMovie(newMovie))
+                .then(newMovie => displayMovie(newMovie))
+                .then(removeSpinner()
+                )
             )
             .catch(/* handle errors */);
     });
@@ -155,8 +160,8 @@ const deleteMovie = (id) => {
 
 
 //Step 1 Move data from display to update form
-const moveData = (id) => {
-
+const displayUpdateScreen = (id) => {
+   // alert('Display update form');
     return fetch(`/api/movies/${id}`)
         .then(response => response.json())
         .then(movie => {
@@ -192,7 +197,8 @@ const updateMovie = (e) => {
 
     /** Hide  update form */
 
-    document.getElementById('update-form').style.display = 'none';
+    //document.getElementById('update-form').style.display = 'none';
+    $("#update-form").modal('toggle');
 
     let urlPoster = "";
     let movieRated = "";
@@ -267,4 +273,4 @@ const getMovieList = () => {
 
 
 /** Export functions */
-export {getMovies, addMovie, deleteMovie, updateMovie, getMovieList, moveData, getMovieDB};
+export {getMovies, addMovie, deleteMovie, updateMovie, getMovieList, displayUpdateScreen, getMovieDB};

@@ -1,6 +1,9 @@
 import {selectMovieRatings, selectMovieGenre, starsAddForm, starsUpdateForm} from './add-listeners';
 
-
+/**
+ *
+ * Purpose : Functions to handle the DOM
+ */
 function initForm(){
 
     selectMovieRatings();

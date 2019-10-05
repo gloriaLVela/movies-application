@@ -1,5 +1,11 @@
 export const getMovieInfoOmdbAPI = (title) => {
     /**
+     *
+     * Purpose : Handle the API called to the OMDB-API
+     */
+
+
+    /**
      * Fetch the data from the OmdbAPI */
     let newTitle = title.split(' ').join('+');
 

@@ -24,7 +24,7 @@
             <div class="row">
                 <!-- Left side -->
                 <div id="left-pane" class="col-md-8">
-                    <div class="row l mb-3" id="movie-list">
+                    <div class="row l mb-12" id="movie-list">
                     </div>
                 </div>
                 <!-- Right side -->
@@ -47,27 +47,27 @@
                                 <input class=" btn btn-success btn-lg btn-block" id="add-movie" type="submit"/>
                             </form>
                         </div>
-                        <div>
+<!--                        <div>-->
 
-                            <form class="rcorners1" id="update-form" style="display: none">
-                                <h5 class="mt-2" style="text-align: center">UPDATE MOVIE</h5>
-                                <label >Movie Name</label>
-                                <input class="form-control" type="text" id="new-name" name="movie-name"><br>
+<!--                            <form class="rcorners1" id="update-form" style="display: none">-->
+<!--                                <h5 class="mt-2" style="text-align: center">UPDATE MOVIE</h5>-->
+<!--                                <label >Movie Name</label>-->
+<!--                                <input class="form-control" type="text" id="new-name" name="movie-name"><br>-->
 
-                                <input type="hidden" id="new-rating">
-                                <label></label>
-                                <div class="text-center mb-3 star-size" >
-                                    <span class="fa fa-star" id="update-star1" ></span>
-                                    <span class="fa fa-star" id="update-star2" ></span>
-                                    <span class="fa fa-star" id="update-star3" ></span>
-                                    <span class="fa fa-star" id="update-star4" ></span>
-                                    <span class="fa fa-star" id="update-star5" ></span>
-                                </div>
+<!--                                <input type="hidden" id="new-rating">-->
+<!--                                <label></label>-->
+<!--                                <div class="text-center mb-3 star-size" >-->
+<!--                                    <span class="fa fa-star" id="update-star1" ></span>-->
+<!--                                    <span class="fa fa-star" id="update-star2" ></span>-->
+<!--                                    <span class="fa fa-star" id="update-star3" ></span>-->
+<!--                                    <span class="fa fa-star" id="update-star4" ></span>-->
+<!--                                    <span class="fa fa-star" id="update-star5" ></span>-->
+<!--                                </div>-->
 
-                                <input type="hidden" id="updateMovieID">
-                                <input class=" btn btn-success btn-lg btn-block" id="update-movie" type="submit"/>
-                            </form>
-                        </div>
+<!--                                <input type="hidden" id="updateMovieID">-->
+<!--                                <input class=" btn btn-success btn-lg btn-block" id="update-movie" type="submit"/>-->
+<!--                            </form>-->
+<!--                        </div>-->
 
                         <div>
 
@@ -145,26 +145,79 @@
 </div>
 <!-- Modal -->
 
-<div id="myModal"  class="modal" tabindex="-1" role="dialog">
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Delete movie
+            </div>
+            <div class="modal-body" id="deleteMovieInformation">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="cancelDelete">Cancel</button>
+                <a class="btn btn-danger btn-ok" id="confirmDeleteMovie">Delete</a>
+                <input type="hidden" id="currentMovieID">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="update-form">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">Update Movie</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p id="deleteMovieInformation">Modal body text goes here.</p>
+                <input class="form-control" type="text" id="new-name" name="movie-name"><br>
+
+                <input type="hidden" id="new-rating">
+                <label></label>
+                <div class="text-center mb-3 star-size" >
+                    <span class="fa fa-star" id="update-star1" ></span>
+                    <span class="fa fa-star" id="update-star2" ></span>
+                    <span class="fa fa-star" id="update-star3" ></span>
+                    <span class="fa fa-star" id="update-star4" ></span>
+                    <span class="fa fa-star" id="update-star5" ></span>
+                </div>
+
+                <input type="hidden" id="updateMovieID">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="deleteThisMovie" type="submit">Delete</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="doNotDeleteMovie" type="submit">Close</button>
-                <input id="deleteMovie" value="true" type="hidden">
+                <button type="button" class="btn btn-primary" id="confirmUpdateMovie">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+<!--<div>-->
+
+<!--    <form class="rcorners1" id="update-form2" style="display: none">-->
+<!--        <h5 class="mt-2" style="text-align: center">UPDATE MOVIE</h5>-->
+<!--        <label >Movie Name</label>-->
+<!--        <input class="form-control" type="text" id="new-name" name="movie-name"><br>-->
+
+<!--        <input type="hidden" id="new-rating">-->
+<!--        <label></label>-->
+<!--        <div class="text-center mb-3 star-size" >-->
+<!--            <span class="fa fa-star" id="update-star1" ></span>-->
+<!--            <span class="fa fa-star" id="update-star2" ></span>-->
+<!--            <span class="fa fa-star" id="update-star3" ></span>-->
+<!--            <span class="fa fa-star" id="update-star4" ></span>-->
+<!--            <span class="fa fa-star" id="update-star5" ></span>-->
+<!--        </div>-->
+
+<!--        <input type="hidden" id="updateMovieID2">-->
+<!--        <input class=" btn btn-success btn-lg btn-block" id="update-movie" type="submit"/>-->
+<!--    </form>-->
+<!--</div>-->
+
+
 <input type="hidden" id="lastID" value="0">
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

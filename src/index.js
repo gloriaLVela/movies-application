@@ -1,5 +1,6 @@
 /**
- * es6 modules and imports
+ *
+ * Purpose:
  */
 
 import {getMovies, getMovieList} from './api';

@@ -1,9 +1,9 @@
 {
   "movies": [
     {
-      "id": 4,
+      "id": 7,
       "title": "Snow White and the Huntsman",
-      "rating": "4",
+      "rating": "5",
       "movieRated": "PG-13",
       "genre": [
         "Action",
@@ -15,19 +15,22 @@
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTQ1NDA0MTk5OV5BMl5BanBnXkFtZTcwMTM4NDMwNw@@._V1_SX300.jpg"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "Sleeping Beauty",
       "rating": "4",
       "movieRated": "G",
-      "genre": [
-        "Animation",
-        " Family",
-        " Fantasy",
-        " Musical",
-        " Romance"
-      ],
+      "genre": "",
       "year": "1959",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BOTJmZjA3MjMtMWNmZS00YTliLWFhMWUtZDU2NGJhNTlmY2ZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+    },
+    {
+      "id": 10,
+      "title": "The Lion King",
+      "rating": "4",
+      "movieRated": "G",
+      "genre": "",
+      "year": "1994",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg"
     }
   ]
 }

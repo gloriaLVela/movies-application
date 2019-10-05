@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-    background-color: #3F3C3C;
+    background-color: black;
     style: "margin:0;"
 }
 /*style="margin:0;"*/
@@ -32,8 +32,6 @@ form h5 {
     color: red;
 }
 
-
-
 #movie-content {
     /*background-color: #F4F1F1;*/
     border-radius: 1em;
@@ -42,16 +40,15 @@ form h5 {
 
 .card {
     background-color: #F4F1F1;
-
-    border: 5px solid #259A36;
+    border: 2px solid #259A36;
     width: 12em;
-    margin-right: 7em;
+    margin-right: 2em;
     margin-bottom: 2em;
 }
 
-img {
-    width: 75px;
-    max-width: 250px;
+
+.card-body {
+    font-size: 2em;
 }
 .card-title {
     color: #3F3C3C;
@@ -62,8 +59,18 @@ img {
     justify-content: flex-end;
 }
 
+div-img{
+    margin: auto;
+}
+img {
+    width: 75px;
+    max-width: 150px;
+    margin: 10px;
+    width: 100%;
+    height: 100%;
+}
 .movie-button {
-    line-height: .5em;
+    line-height: .25em;
 }
 
 .orange {
@@ -78,9 +85,7 @@ img {
     background-image: url(img/Spinner-1s-200px.gif);
 }
 
-.card-body {
-    font-size: 2em;
-}
+
 
 .star-size {
     font-size: 1.2em;

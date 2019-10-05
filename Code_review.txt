@@ -1,6 +1,25 @@
 
+
 Meeting date : 09/18/2019
 
 Attendees : Justin Reich and Gloria Laura Vela
 
 Expected modification
+
+Implement a module to handle the DOM manipulation -- Complete & ongoing
+
+Implement a module to handle the movie-api -- Completed
+
+Add a notification at the bottom of the screen for non-destructive actions
+
+Add a pop-up for destructive actions Delete and Update -- Delete completed & Update is WIP
+
+Modify documentation to describe actions -- ongoing
+
+Refactor to import only instead of require and import -- Completed
+
+Modify index.js to handle high level -- Completed
+
+The functions should use verbs to demonstrate actions -- Completed
+
+Include the Init() function to initialize the variables -- Completed

@@ -1,10 +1,15 @@
-import {addMovie, updateMovie, getMovieList} from './api';
+import {addMovie, updateMovie, getMovieList, deleteMovie, displayUpdateScreen} from './api';
 
-import { displayMovies, saveSearchCriteria} from './buildHTML';
+import {displayMovies, saveSearchCriteria} from './buildHTML';
+
+/**
+ *
+ * Purpose: Add the event listeners
+ */
 
 export function selectMovieRatings() {
     /**
-     *  Movie rating
+     *  Select movie rating
      *
      * */
 
@@ -17,7 +22,7 @@ export function selectMovieRatings() {
              *
              * Find the selected ratings
              */
-            //console.log('here');
+                //console.log('here');
             let selectedMovieRatings = document.getElementsByClassName("movie-rating");
 
             let movieRatings = Array.from(selectedMovieRatings);
@@ -45,7 +50,7 @@ export function selectMovieGenre() {
 
 
     /**
-     *  Movie genre
+     *  Select movie genre
      *
      * */
     const movieGenreElements = document.getElementsByClassName('genre');
@@ -84,7 +89,7 @@ export function starsAddForm() {
     /**
      *
      *
-     * stars in the Add form.
+     * Handle the stars in the Add form.
      */
 
     for (let i = 1; i <= 5; i++) {
@@ -113,7 +118,7 @@ export function starsUpdateForm() {
     /**
      *
      *
-     * stars in the Update form.
+     * Handle the stars in the Update form.
      */
 
     for (let i = 1; i <= 5; i++) {
@@ -136,20 +141,15 @@ export function starsUpdateForm() {
     }
 }
 
-/** add button*/
+/** Handle the add button*/
 
 document.getElementById("add-movie").addEventListener('click', event => {
     addMovie(event);
 });
 
-/** update button*/
 
-document.getElementById("update-movie").addEventListener('click', event => {
-    updateMovie(event);
-    //getMovieList();
-});
 
-/** search button*/
+/** Handle the search button*/
 
 document.getElementById("search-movie").addEventListener('click', event => {
     saveSearchCriteria(event);
@@ -159,19 +159,61 @@ document.getElementById("search-movie").addEventListener('click', event => {
 
 });
 
-document.getElementById("doNotDeleteMovie").addEventListener('click', event => {
-    event.preventDefault();
-   // alert('Do not delete');
-    document.getElementById('deleteMovie').innerText = "false";
-    $('#myModal').modal('toggle');
-   // $("#myModal").modal();
+
+/** Handle the update button in the card **/
+export function addUpdateButtonCard(id) {
+    document.getElementById(`update${id}`).addEventListener('click', event => {
+        document.getElementById('currentMovieID').value = id;
+        $('#update-form').modal('toggle');
+        displayUpdateScreen(id);
+    });
+
+}
+
+/** Handle the confirm update **/
+$('#update-form').on('show.bs.modal', function (e) {
+    document.getElementById('confirmUpdateMovie').addEventListener('click', event => {
+        // alert('Update this movie ');
+        let id = document.getElementById('currentMovieID').value;
+        updateMovie(event);
+
+
+    });
+
 });
 
-document.getElementById("deleteThisMovie").addEventListener('click', event => {
-    event.preventDefault();
-    document.getElementById('deleteMovie').innerText = "true";
-    $('#myModal').modal('toggle');
-    //alert('delete');
-   // $("#myModal").modal();
+
+/** Handle the delete button in the card **/
+export function addDeleteButtonCard(id, title) {
+    document.getElementById(`delete${id}`).addEventListener('click', event => {
+        /** Display the delete pop up */
+        document.getElementById('currentMovieID').value = id;
+        $("#confirm-delete").modal('toggle');
+        document.getElementById("deleteMovieInformation").innerText = "Do you want to delete the movie " + title + "?";
+
+    });
+}
+
+/** Handle the confirm delete **/
+$('#confirm-delete').on('show.bs.modal', function (e) {
+    document.getElementById('confirmDeleteMovie').addEventListener('click', event => {
+        // alert('Delete movie ');
+        let id = document.getElementById('currentMovieID').value;
+
+        var elem = document.querySelector(`#movie${id}`);
+        elem.parentNode.removeChild(elem);
+        deleteMovie(id);
+        $("#confirm-delete").modal('toggle');
+
+    });
+
 });
+
+/** Handle the cancel delete **/
+document.getElementById('cancelDelete').addEventListener('click', event => {
+    $("#confirm-delete").modal('toggle');
+});
+
+
+
 

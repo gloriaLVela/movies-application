@@ -4,7 +4,7 @@ import {selectMovieRatings, selectMovieGenre, starsAddForm, starsUpdateForm} fro
  *
  * Purpose : Functions to handle the DOM
  */
-function initForm(){
+function initForm() {
 
     selectMovieRatings();
 
@@ -35,4 +35,19 @@ function clearAddMovie() {
     }
 }
 
-export {displaySpinner, clearAddMovie, removeSpinner, initForm}
+function changeCardBackgroundColor() {
+    let cards = document.getElementsByClassName('card');
+    // console.log(cards);
+    let rowCount = 0;
+    for (let index = 0; index < cards.length; index++) {
+        if (index % 2 == 1) {
+            //document.getElementById("MyElement").className = "MyClass";
+            cards[index].className = "card odd-movie-card";
+        } else {
+            cards[index].className = "card";
+        }
+
+    }
+}
+
+export {displaySpinner, clearAddMovie, removeSpinner, initForm, changeCardBackgroundColor}

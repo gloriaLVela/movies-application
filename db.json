@@ -17,9 +17,15 @@
     {
       "id": 9,
       "title": "Sleeping Beauty",
-      "rating": "4",
+      "rating": "5",
       "movieRated": "G",
-      "genre": "",
+      "genre": [
+        "Animation",
+        " Family",
+        " Fantasy",
+        " Musical",
+        " Romance"
+      ],
       "year": "1959",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BOTJmZjA3MjMtMWNmZS00YTliLWFhMWUtZDU2NGJhNTlmY2ZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
     },
@@ -28,9 +34,113 @@
       "title": "The Lion King",
       "rating": "4",
       "movieRated": "G",
-      "genre": "",
+      "genre": [
+        "Animation",
+        " Adventure",
+        " Drama",
+        " Family",
+        " Musical"
+      ],
       "year": "1994",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg"
+    },
+    {
+      "id": 12,
+      "title": "The Other Guys",
+      "rating": "5",
+      "movieRated": "PG-13",
+      "genre": "",
+      "year": "2010",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTc0NDQzNTA2Ml5BMl5BanBnXkFtZTcwNzI2OTQzMw@@._V1_SX300.jpg"
+    },
+    {
+      "id": 18,
+      "title": "Pretenders",
+      "rating": "4",
+      "movieRated": "N/A",
+      "genre": "",
+      "year": "2002–2004",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMzg3NDE1MmMtYmE0Yi00ZjNlLTgyNDgtZjhhMTQ0NDk3OWQzXkEyXkFqcGdeQXVyMzU1ODUxOTk@._V1_SX300.jpg"
+    },
+    {
+      "id": 19,
+      "title": "Terminator 2: Judgment Day",
+      "rating": "3",
+      "movieRated": "R",
+      "genre": [
+        "Action",
+        " Sci-Fi"
+      ],
+      "year": "1991",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+    },
+    {
+      "id": 21,
+      "title": "The Matrix",
+      "rating": "5",
+      "movieRated": "R",
+      "genre": [
+        "Action",
+        " Sci-Fi"
+      ],
+      "year": "1999",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+    },
+    {
+      "id": 23,
+      "title": "The Lives of Others",
+      "rating": "2",
+      "movieRated": "R",
+      "genre": "",
+      "year": "2006",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BOThkM2EzYmMtNDE3NS00NjlhLTg4YzktYTdhNzgyOWY3ZDYzXkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_SX300.jpg"
+    },
+    {
+      "id": 24,
+      "title": "Pocahontas",
+      "rating": "4",
+      "movieRated": "G",
+      "genre": "",
+      "year": "1995",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMzc4YzhiN2ItY2Y4NC00YTA0LWEyMjEtNzllNTcxZDdjODhiXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg"
+    },
+    {
+      "id": 25,
+      "title": "Aladin",
+      "rating": "4",
+      "movieRated": "Not Rated",
+      "genre": "",
+      "year": "2009",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTQxMjY4NzUyM15BMl5BanBnXkFtZTcwMDI4NTk5Mw@@._V1_SX300.jpg"
+    },
+    {
+      "id": 26,
+      "title": "The Dust Bowl",
+      "rating": "5",
+      "movieRated": "N/A",
+      "genre": [
+        "Documentary"
+      ],
+      "year": "2012–",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTk2MjIzNjYxNF5BMl5BanBnXkFtZTgwNDI2NDAxMzE@._V1_SX300.jpg"
+    },
+    {
+      "id": 28,
+      "title": "The Little Mermaid",
+      "rating": "4",
+      "movieRated": "G",
+      "genre": "",
+      "year": "1989",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BN2JlZTBhYTEtZDE3OC00NTA3LTk5NTQtNjg5M2RjODllM2M0XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_SX300.jpg"
+    },
+    {
+      "id": 29,
+      "title": "101 Dalmatians",
+      "rating": "4",
+      "movieRated": "G",
+      "genre": "",
+      "year": "1961",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BZGMyMjE4OGUtNGZmMC00YzdmLThkMWYtZWIzMmEzNjA4MzVkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
     }
   ]
 }

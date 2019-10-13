@@ -23,3 +23,26 @@ Modify index.js to handle high level -- Completed
 The functions should use verbs to demonstrate actions -- Completed
 
 Include the Init() function to initialize the variables -- Completed
+
+
+
+-- Meeting date Thursday
+Attendees : Justin Reich and Gloria Laura Vela
+Expected modifications
+Include comments for the modules and functions
+
+Extra---
+Reorganize the css
+Add modals (Update, Delete and checkboxes)
+
+
+
+
+Meeting date: 10/07/2019
+Attendees : Justin Reich and Gloria Laura Vela
+Expected modifications
+
+-- Block comments for the module or the functions
+-- line comments for the rest
+-- No space between the comment and the code
+-- Make it mobile responsive

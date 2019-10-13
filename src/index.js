@@ -1,6 +1,6 @@
 /**
  *
- * Purpose:
+ * Purpose: The index.js is the top level module
  */
 
 import {getMovies, getMovieList} from './api';
@@ -16,14 +16,14 @@ initForm();
 
 /**Displays all movies in the console */
 
-getMovies().then((movies) => {
-    console.log('Here are all the movies:');
-    movies.forEach(({title, rating, id}) => {
-        console.log(`id#${id} - ${title} - rating: ${rating}`);
-    });
-}).catch(() => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.');
-});
+// getMovies().then((movies) => {
+//     console.log('Here are all the movies:');
+//     movies.forEach(({title, rating, id}) => {
+//         console.log(`id#${id} - ${title} - rating: ${rating}`);
+//     });
+// }).catch(() => {
+//     alert('Oh no! Something went wrong.\nCheck the console for details.');
+// });
 
 /**Display movies on the screen*/
 getMovieList().then(movies => {

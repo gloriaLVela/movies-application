@@ -1,8 +1,55 @@
-
+/*HTML elements*/
 
 html, body {
     height: 100%;
     margin: 0;
+   font-family: Lato,Arial,Helvetica,sans-serif;
+}
+
+body {
+    style: "margin:0;"
+}
+/*style="margin:0;"*/
+h1 {
+  padding: .5em;
+    color: #275B72;
+
+}
+
+form {
+    background-color:#F4F1F1;
+    margin-bottom: 2em;
+    /*border: 5px solid #259A36;*/
+
+}
+form h5 {
+    font-family: "Oswald",Arial,Helvetica,sans-serif;
+    /*font-size: 17px;*/
+    /*font-weight: normal;*/
+    text-transform: uppercase;
+    color: #499CAF;
+    font-weight: bolder;
+
+        /*red;*/
+}
+
+img {
+    width: 75px;
+    max-width: 150px;
+    margin: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+label {
+    font-size: .9em;
+}
+
+/*Elements by id*/
+
+#div-img{
+    /*margin: auto;*/
+    align-content: center;
 }
 
 #loader {
@@ -11,41 +58,58 @@ html, body {
     background-size: 100%;
 }
 
-body {
-    background-color: black;
-    style: "margin:0;"
-}
-/*style="margin:0;"*/
-h1 {
-    /*color: orange;*/
-    color: #259A36;
-}
-
-form {
-    background-color:#F4F1F1;
-    margin-bottom: 2em;
-    border: 5px solid #259A36;
-
-}
-
-form h5 {
-    color: red;
-}
-
 #movie-content {
     /*background-color: #F4F1F1;*/
     border-radius: 1em;
     /*width: 100%;*/
 }
 
-.card {
-    background-color: #F4F1F1;
-    border: 2px solid #259A36;
-    width: 12em;
-    margin-right: 2em;
-    margin-bottom: 2em;
+#movie-list {
+    max-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
 }
 
+#left-pane{
+    background-color:#F4F1F1;
+   border: 1.5em solid #F4F1F1;
+}
+#right-pane {
+    display: flex;
+    flex-wrap: wrap;
+    /*width: 100%;*/
+    position: relative;
+    max-height: 100%;
+    overflow: auto;
+}
+
+
+#main-div {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-gap: 2em;
+}
+
+#movie-content{
+    width: 100%;
+}
+
+/*Elements by class name*/
+
+.boxLoading {
+    background-image: url(img/Spinner-1s-200px.gif);
+}
+
+.card{
+    display: flex;
+    align-content: center;
+    /*border: 0px;*/
+    /*border-radius: 0px;*/
+    padding: 1em;
+    height: 100%;
+    /*margin: 2em 1em;*/
+    box-shadow: 10px 10px 8px 10px #888888;
+}
 
 .card-body {
     font-size: 2em;
@@ -59,61 +123,59 @@ form h5 {
     justify-content: flex-end;
 }
 
-div-img{
-    margin: auto;
-}
-img {
-    width: 75px;
-    max-width: 150px;
-    margin: 10px;
-    width: 100%;
-    height: 100%;
-}
-.movie-button {
-    line-height: .25em;
-}
+.card-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    padding: .5em;
 
-.orange {
-    color: orange;
 }
 
 .checked {
     color: orange;
 }
 
-.boxLoading {
-    background-image: url(img/Spinner-1s-200px.gif);
+
+.hide-elements {
+    display: none;
 }
 
+.movie-button {
+    line-height: .25em;
+}
 
+.movie-card {
+    background-color: #F4F1F1;
+    width: 12em;
+    border: 2em;
+    /*margin-right: 2em;*/
+    /*margin-bottom: 2em;*/
+}
 
 .star-size {
     font-size: 1.2em;
 }
 
-.rcorners1 {
-    border-radius: 15px;
-}
-
-.boxLoading {
-    background-image: url(img/Spinner-1s-200px.gif);
+.star-disp{
+    display: flex;
+    justify-content: center;
 }
 
 .stars-bck {
     background: white;
 }
 
-#left-pane {
-    position: relative;
-    max-height: 100%;
-    overflow: auto;
+
+.odd-movie-card {
+    background-color: #F6F0F0;
+    /*#AFD0DF;*/
 }
 
-#movie-list {
-    max-height: 100vh;
+.medium-blue{
+    background-color: #499CAF;
+}
+
+.dark-blue{
+    background-color: #275B72;
 }
 
 
-#right-pane {
-    overflow: hidden;
-}

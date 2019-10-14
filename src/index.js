@@ -1,26 +1,18 @@
 /**
- * es6 modules and imports
+ *
+ * Purpose:
  */
-// import sayHello from './hello';
-// sayHello('World');
+
+import {getMovies, getMovieList} from './api';
+import {displayMovies} from './buildHTML';
+import {initForm} from "./manageDOM";
 
 /**
- * require style imports
+ *
+ * Initialize the form
  */
-const {getMovies, getMovieList, addMovie, updateMovie} = require('./api');
 
-
-import {displayMovies, saveSearchCriteria } from './buildHTML';
-
-import  {movieRatings,movieGenre, starsAddForm, starsUpdateForm}  from './add-listeners';
-movieRatings();
-
-movieGenre();
-
-starsAddForm();
-
-starsUpdateForm();
-
+initForm();
 
 /**Displays all movies in the console */
 
@@ -34,32 +26,9 @@ getMovies().then((movies) => {
 });
 
 /**Display movies on the screen*/
-getMovieList().then( movies => {
-    //saveSearchCriteria('click');
+getMovieList().then(movies => {
     displayMovies(movies)
 });
 
 
-/**Add event listener for the add button*/
 
-document.getElementById("add-movie").addEventListener('click', event => {
-    addMovie(event);
-    getMovieList();
-});
-
-/**Add event listener for the update button*/
-
-document.getElementById("update-movie").addEventListener('click', event => {
-    updateMovie(event);
-    getMovieList();
-});
-
-/**Add event listener for the search button*/
-
-document.getElementById("search-movie").addEventListener('click', event => {
-    saveSearchCriteria(event);
-     getMovieList().then( movies => {
-       displayMovies(movies)
-    });
-
-});

@@ -26,7 +26,7 @@ Include the Init() function to initialize the variables -- Completed
 
 
 
--- Meeting date Thursday
+-- Meeting date: 10/02/2019
 Attendees : Justin Reich and Gloria Laura Vela
 Expected modifications
 Include comments for the modules and functions
@@ -46,3 +46,6 @@ Expected modifications
 -- line comments for the rest
 -- No space between the comment and the code
 -- Make it mobile responsive
+-- Add a notification at the bottom of the screen for non-destructive actions
+-- Add a pop-up for destructive actions Delete and Update -- Delete completed & Update is WIP
+

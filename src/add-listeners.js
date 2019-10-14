@@ -1,6 +1,6 @@
-import {addMovie, updateMovie, getMovieList, deleteMovie, displayUpdateScreen} from './api';
+import {addMovie, updateMovie, getMovieList, deleteMovie, displayUpdateScreen, getMovieInfoId} from './api';
 
-import {displayMovies, saveSearchCriteria} from './buildHTML';
+import {displayMovies} from './buildHTML';
 
 /**
  *
@@ -20,7 +20,7 @@ export function selectMovieRatings() {
         document.getElementById(element.id).addEventListener('click', function () {
 
             //Find the selected ratings
-             let selectedMovieRatings = document.getElementsByClassName("movie-rating");
+            let selectedMovieRatings = document.getElementsByClassName("movie-rating");
 
             let movieRatings = Array.from(selectedMovieRatings);
 
@@ -38,12 +38,11 @@ export function selectMovieRatings() {
             });
         })
 
-    }
-    ;
-
+    };
 }
 
 /**
+ *
  *  Select movie genre
  *
  * */
@@ -77,9 +76,7 @@ export function selectMovieGenre() {
 };
 
 
-
 /**
- *
  *
  * Handle the stars in the Add form.
  */
@@ -105,7 +102,6 @@ export function starsAddForm() {
 }
 
 /**
- *
  *
  * Handle the stars in the Update form.
  */
@@ -141,8 +137,8 @@ document.getElementById("add-movie").addEventListener('click', event => {
 /** Handle the update button in the card **/
 export function addUpdateButtonCard(id) {
     document.getElementById(`update${id}`).addEventListener('click', event => {
+        console.log(`update ${id}`);
         document.getElementById('currentMovieID').value = id;
-        $('#update-form').modal('toggle');
         displayUpdateScreen(id);
     });
 
@@ -151,7 +147,6 @@ export function addUpdateButtonCard(id) {
 /** Handle the confirm update **/
 $('#update-form').on('show.bs.modal', function (e) {
     document.getElementById('confirmUpdateMovie').addEventListener('click', event => {
-        // alert('Update this movie ');
         let id = document.getElementById('currentMovieID').value;
         updateMovie(event);
 
@@ -166,8 +161,12 @@ export function addDeleteButtonCard(id, title) {
     document.getElementById(`delete${id}`).addEventListener('click', event => {
         /** Display the delete pop up */
         document.getElementById('currentMovieID').value = id;
-        $("#confirm-delete").modal('toggle');
-        document.getElementById("deleteMovieInformation").innerText = "Do you want to delete the movie " + title + "?";
+        getMovieInfoId(id).then(moviePoster => {
+                document.getElementById('movie-poster-delete').src = moviePoster[0].urlPoster;
+                document.getElementById("deleteMovieInformation").innerText = "Do you want to delete the movie " + title + "?";
+                $("#confirm-delete").modal('toggle');
+            }
+        );
 
     });
 }
@@ -193,22 +192,24 @@ document.getElementById('cancelDelete').addEventListener('click', event => {
 });
 
 
-//Toggle the rating options
-document.getElementById('ratingID').addEventListener('click', event =>{
-    if (document.getElementById('rating-options').className === 'hide-elements'){
+/** Toggle the rating options **/
+document.getElementById('ratingID').addEventListener('click', event => {
+    if (document.getElementById('rating-options').className === 'hide-elements') {
         document.getElementById('rating-options').className = "";
     } else {
         document.getElementById('rating-options').className = 'hide-elements';
-    };
+    }
+    ;
 });
 
-// Toggle the genre options
-document.getElementById('genreID').addEventListener('click', event =>{
-    if (document.getElementById('genre-options').className === 'hide-elements'){
+/** Toggle the genre options **/
+document.getElementById('genreID').addEventListener('click', event => {
+    if (document.getElementById('genre-options').className === 'hide-elements') {
         document.getElementById('genre-options').className = "";
     } else {
         document.getElementById('genre-options').className = 'hide-elements';
-    };
+    }
+    ;
 });
 
 

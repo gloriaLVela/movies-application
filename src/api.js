@@ -1,13 +1,13 @@
 /**Retrieve movies from /api/movies (db.json) set-up in server.js*/
 import {getMovieInfoOmdbAPI} from './OMDB_API';
-import {displaySpinner, clearAddMovie, removeSpinner, changeCardBackgroundColor} from './manageDOM';
+import {displaySpinner, clearAddMovie, removeSpinner, displayMessage} from './manageDOM';
 import {displayMovie} from "./buildHTML";
+import {addMovieArray, checkDuplicateMovie, removeMovieList} from './index.js';
 
 /**
  *
  * Purpose: Handle the api calls to the movie db inside the db.json
  */
-
 
 /**
  *
@@ -40,7 +40,23 @@ const getMovieDB = (title) => {
         .then(movies => {
             /** filter the movies by the movie title **/
             return movies.filter(function (movie) {
-                return (movie.title == title);
+                return (movie.title.trim() == title);
+            });
+        })
+};
+
+
+/**
+ *
+ * Get the movie poster from the database
+ */
+const getMovieInfoId = (id) => {
+    return fetch('/api/movies')
+        .then(response => response.json())
+        .then(movies => {
+            /** filter the movies by the movie title **/
+            return movies.filter(function (movie) {
+                return (movie.id == id);
             });
         })
 };
@@ -49,39 +65,23 @@ const getMovieDB = (title) => {
 /**
  * Add a movie to the database
  * */
-
 const addMovie = (e) => {
     e.preventDefault(); // don't submit the form, we just want to update the data
 
     displaySpinner();
     let rating = document.getElementById('rating').value;
     let title = changeTitleCase('movie-name');
+    let newMovieName = title;
+    // console.log((newMovieName));
 
     clearAddMovie();
-    let id = 0;
-    fetch('/api/movies')
-        .then(response => response.json())
-        .then(movies => {
-            //console.log(movies);
-            return movies.map(function (movie) {
-                return movie.id;
-            });
-        })
-        .then(idArray => {
-            //console.log(idArray);
-
-            id = idArray.sort()[idArray.length - 1];
-            //console.log(id);
-
-        });
-
+    // console.log(' add id ' + id);
     let urlPoster = "";
     let movieRated = "";
     let currentGenre = "";
     let year = "";
-    //removeSpinner();
+
     getMovieInfoOmdbAPI(title).then((data) => {
-        //console.log(data);
         urlPoster = data["Poster"];
         movieRated = data["Rated"];
         currentGenre = data["Genre"];
@@ -91,47 +91,65 @@ const addMovie = (e) => {
 
         if (currentGenre != undefined) currentGenre.split(",");
         let title = data["Title"];
+        // Check if the movie exists in the database
+        if (typeof(title) === 'undefined') {
+            removeSpinner();
+            displayMessage(newMovieName, 4);
+        } else {
+            if (!checkDuplicateMovie(title, 0)) {
+                // Create the new movie object
+                const newMovie = {
+                    title,
+                    rating,
+                    movieRated,
+                    genre,
+                    year,
+                    urlPoster
+                };
+                addMovieArray(title);
+                //Update the movie database
+                const url = '/api/movies';
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newMovie),
+                };
+                fetch(url, options)
+                    .then(response => response.json())
+                    .then(newMovie => getMovieDB(newMovie.title)
+                        .then(newMovie => displayMovie(newMovie))
+                        .then(() => {
+                                removeSpinner();
 
-        // Create the new movie object
-        const newMovie = {
-            id,
-            title,
-            rating,
-            movieRated,
-            genre,
-            year,
-            urlPoster
-        };
+                                // Movie added to the system
+                                displayMessage(title, 1);
+                            }
+                        )
+                    )
+                    .catch(() => {
+                        // Problem with the movie
+                        removeSpinner();
+                        displayMessage(title, 3);
+                    });
 
-        //Update the movie database
-        const url = '/api/movies';
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newMovie),
-        };
-        fetch(url, options)
-            .then(response => response.json())
-            .then(newMovie => getMovieDB(newMovie.title)
-                .then(newMovie => displayMovie(newMovie))
-                .then(removeSpinner()
-                )
-            )
-            .catch(/* handle errors */);
+            }
+            else {
+                // The movie exists in the system
+                displayMessage(title, 3);
+                removeSpinner();
+            }
+        }
     });
-
-
 };
 
 /**
+ *
  * Delete movie
  *
  **/
-
 const deleteMovie = (id) => {
-
 
     // Clear the add movie
     clearAddMovie()
@@ -142,12 +160,11 @@ const deleteMovie = (id) => {
             'Content-Type': 'application/json',
         },
     };
-
+    removeMovieList(id);
     // update database
     fetch(`/api/movies/${id}`, options)
         .then(() => {
             console.log(`movie ${id} deleted`);
-            changeCardBackgroundColor();
         })
         .catch(() => {
             console.log('error on delete')
@@ -155,21 +172,23 @@ const deleteMovie = (id) => {
 
 };
 
-/**Update Movie
+/**
+ * Update Movie
  ** Step 1 Move data from display to update form
  * */
-
 const displayUpdateScreen = (id) => {
-   // alert('Display update form');
+    // alert('Display update form');
     return fetch(`/api/movies/${id}`)
         .then(response => response.json())
         .then(movie => {
-            //console.log(movie);
-            let {title, rating, id} = movie;
-            //console.log(title);
+            let {title, rating, id, urlPoster} = movie;
+            //setup the update movie modal
+            // movie-poster-update
+            document.getElementById("old-name").innerText = "Current title :" + title;
             document.getElementById("new-name").value = title;
             document.getElementById("new-rating").value = rating;
             document.getElementById("updateMovieID").value = id;
+            document.getElementById("movie-poster-update").src = urlPoster;
 
             //changes stars to black
             for (let i = 1; i <= 5; i++) {
@@ -183,10 +202,12 @@ const displayUpdateScreen = (id) => {
                     cur.className = "fa fa-star checked"
                 }
             }
+            $('#update-form').modal('toggle');
         });
 };
 
-/**Update Movie
+/**
+ * Update Movie
  ** Step 2 update movie in database
  * */
 const updateMovie = (e) => {
@@ -194,10 +215,11 @@ const updateMovie = (e) => {
     let rating = document.getElementById('new-rating').value;
     let title = changeTitleCase('new-name'); //document.getElementById('new-name').value.trim();
     let id = document.getElementById("updateMovieID").value;
+    let newMovieName = title;
     clearAddMovie();
 
     // Hide  update form
-    $("#update-form").modal('toggle');
+    // $("#update-form").modal('toggle');
 
     let urlPoster = "";
     let movieRated = "";
@@ -206,62 +228,86 @@ const updateMovie = (e) => {
 
     //Get the movie information
     getMovieInfoOmdbAPI(title).then((data) => {
-        //console.log(data);
-        urlPoster = data["Poster"];
-        movieRated = data["Rated"];
-        currentGenre = data["Genre"];
-        year = data["Year"];
-        document.getElementById(`img${id}`).setAttribute("src", urlPoster);
-
-        // Update the star rating
-        let starHTML = "";
-
-        for (let i = 0; i < rating; i++) {
-            starHTML += `<span class="fa fa-star checked"></span>`;
+        title = data["Title"];
+        if (typeof(title) === 'undefined') {
+            removeSpinner();
+            displayMessage(newMovieName, 4);
         }
-        for (let i = rating; i < 5; i++) {
-            starHTML += `<span class="fa fa-star"></span>`;
+        else {
+            if (!checkDuplicateMovie(data["Title"], id)) {
+                urlPoster = data["Poster"];
+                movieRated = data["Rated"];
+                currentGenre = data["Genre"];
+                year = data["Year"];
+                document.getElementById(`img${id}`).setAttribute("src", urlPoster);
+
+                // Update the star rating
+                let starHTML = "";
+
+                for (let i = 0; i < rating; i++) {
+                    starHTML += `<span class="fa fa-star checked"></span>`;
+                }
+                for (let i = rating; i < 5; i++) {
+                    starHTML += `<span class="fa fa-star"></span>`;
+                }
+
+                document.getElementById(`dStar${id}`).innerHTML = starHTML;
+                let genre = "";
+                if (typeof genre != "undefined") genre = currentGenre.split(",");
+                let title = data["Title"];
+
+                const updateMovie = {
+                    id,
+                    title,
+                    rating,
+                    movieRated,
+                    genre,
+                    year,
+                    urlPoster
+                };
+
+                // Add the new movie to the array
+                const url = `/api/movies/${id}`;
+                const options = {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updateMovie),
+                };
+
+                fetch(url, options)
+                    .then(response => response.json())
+                    .then(newMovie => getMovieDB(newMovie.title)
+                        .then(newMovie => {displayMovie(newMovie);
+                            // Movie modified
+                            $('#update-form').modal('toggle');
+                            removeSpinner();
+                            displayMessage(title, 2);})
+                    )
+                    .catch(() => {
+                        // Error with the movie
+                        $('#update-form').modal('toggle');
+                        removeSpinner();
+                        displayMessage(newMovieName, 4)
+                    });
+
+            } else {
+                $('#update-form').modal('toggle');
+                removeSpinner();
+                // Unable to modify the movie
+                displayMessage(title, 3);
+
+            }
         }
-
-        document.getElementById(`dStar${id}`).innerHTML = starHTML;
-        let genre = "";
-        if (typeof genre != "undefined") genre = currentGenre.split(",");
-        let title = data["Title"];
-
-        const updateMovie = {
-            id,
-            title,
-            rating,
-            movieRated,
-            genre,
-            year,
-            urlPoster
-        };
-        // Add the new movie to the array
-
-
-        const url = `/api/movies/${id}`;
-        const options = {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updateMovie),
-        };
-        fetch(url, options)
-            .then(response => response.json())
-            .then(newMovie => getMovieDB(newMovie.title)
-                .then(newMovie => displayMovie(newMovie))
-            )
-            .catch(/* handle errors */);
     });
 
 }
+
 /**
  *
  * Get the list of movies
  */
-
 const getMovieList = () => {
     // let idArray = [];
     // console.log('get movie list');
@@ -272,4 +318,13 @@ const getMovieList = () => {
 
 
 /** Export functions */
-export {getMovies, addMovie, deleteMovie, updateMovie, getMovieList, displayUpdateScreen, getMovieDB};
+export {
+    getMovies,
+    addMovie,
+    deleteMovie,
+    updateMovie,
+    getMovieList,
+    displayUpdateScreen,
+    getMovieDB,
+    getMovieInfoId
+};

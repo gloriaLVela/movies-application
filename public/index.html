@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Application</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -128,30 +129,36 @@
 </div>
 <!-- Modal -->
 
-<div class="modal fade" id="overlay">
-    <div class="modal-dialog">
+<!-- Non-destructive -->
+
+<div class="modal fade custom" id="non-destructive-message">
+        <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Hello</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
             </div>
-            <div class="modal-body">
-                <p>Non-destructive message</p>
+            <div class="alert alert-success" id ="success">
+            </div>
+            <div class="alert alert-warning" id ="warning">
+            </div>
+            <div class="alert alert-danger" id ="danger">
             </div>
         </div>
     </div>
 </div>
 
+<!-- Delete -->
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header modal-form-title">
                 Delete movie
             </div>
             <div class="modal-body" id="deleteMovieInformation">
                 ...
             </div>
+            <img id="movie-poster-delete"><br>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="cancelDelete">Cancel</button>
                 <a class="btn btn-danger btn-ok" id="confirmDeleteMovie">Delete</a>
@@ -161,18 +168,22 @@
     </div>
 </div>
 
+<!-- Update -->
 <div class="modal" tabindex="-1" role="dialog" id="update-form">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Update Movie</h5>
+                <h5 class="modal-title modal-form-title">Update Movie</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <input class="form-control" type="text" id="new-name" name="movie-name"><br>
 
+                <label id="old-name"></label><br>
+                <label for="new-name" class="modal-form-heading">New movie</label>
+                <input class="form-control" type="text" id="new-name" name="movie-name"><br>
+                <img id="movie-poster-update"><br>
                 <input type="hidden" id="new-rating">
                 <label></label>
                 <div class="text-center mb-3 star-size">
@@ -186,7 +197,7 @@
                 <input type="hidden" id="updateMovieID">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="confirmUpdateMovie">Save changes</button>
+                <button type="button" class="btn btn-primary dark-blue" id="confirmUpdateMovie">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

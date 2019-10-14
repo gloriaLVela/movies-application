@@ -13,6 +13,7 @@ function initForm() {
     starsAddForm();
 
     starsUpdateForm();
+
 }
 
 function displaySpinner() {
@@ -35,19 +36,46 @@ function clearAddMovie() {
     }
 }
 
-function changeCardBackgroundColor() {
-    let cards = document.getElementsByClassName('card');
-    // console.log(cards);
-    let rowCount = 0;
-    for (let index = 0; index < cards.length; index++) {
-        if (index % 2 == 1) {
-            //document.getElementById("MyElement").className = "MyClass";
-            cards[index].className = "card odd-movie-card";
-        } else {
-            cards[index].className = "card";
-        }
+function displayMessage(title, option){
+    switch (option) {
 
+        case 1: {
+            document.getElementById('success').innerHTML = "The movie  '" + title + "' was added to the system.";
+            document.getElementById('success').style.display = 'block';
+            document.getElementById('warning').style.display = 'none';
+            document.getElementById('danger').style.display = 'none';
+            break;
+        }
+        case 2: {
+            document.getElementById('success').innerHTML = "The modification to the movie  '" + title + "' is implemented.";
+            document.getElementById('success').style.display = 'block';
+            document.getElementById('warning').style.display = 'none';
+            document.getElementById('danger').style.display = 'none';
+            break;
+        }
+        case 3:
+        {
+           document.getElementById('warning').innerHTML = "The movie '" + title + "' exists in the system.";
+            document.getElementById('warning').style.display = 'block';
+            document.getElementById('success').style.display = 'none';
+            document.getElementById('danger').style.display = 'none';
+            break;
+
+        }
+        case 4 : {
+            document.getElementById('danger').innerHTML = "The movie " + title + " does not exists in the database.";
+            document.getElementById('danger').style.display = 'block';
+            document.getElementById('warning').style.display = 'none';
+            document.getElementById('success').style.display = 'none';
+            break;
+
+        }
     }
+     $('#non-destructive-message').modal('toggle');
+
+    let timeoutId = setTimeout(function () {
+        $('#non-destructive-message').modal('toggle')
+    }, 3000);
 }
 
-export {displaySpinner, clearAddMovie, removeSpinner, initForm, changeCardBackgroundColor}
+export {displaySpinner, clearAddMovie, removeSpinner, initForm, displayMessage}

@@ -169,8 +169,68 @@ label {
     background-color: #483D8B;
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    form{
+        margin-bottom: 0;
+    }
+    .card {
+        display: flex;
+        align-content: center;
+        padding: .5em;
+        height: 100%;
+    }
+
+    .card-title {
+        color: #3F3C3C;
+        text-shadow: .1em .1em lightgrey;
+    }
+
+    .movie-poster {
+        display: none;
+    }
+
+    .movie-poster-update {
+        width: 75px;
+        max-width: 150px;
+        margin: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .movie-card {
+        background-color: #F4F1F1;
+        width: 12em;
+        border: 2em;
+        margin-top: .5em;
+        margin-bottom: .25em;
+    }
+
+    #movie-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+
+    #right-pane {
+        display: flex;
+        flex-direction: row;
+        /*justify-content: flex-start;*/
+        flex-wrap: wrap;
+        /*}*/
+
+        /*#movie-list {*/
+        max-height: 100vh;
+        /*display: flex;*/
+        /*flex-wrap: wrap;*/
+        justify-content: space-around;
+        /*align-content: flex-start;*/
+    }
+}
 /*******************************************/
-/* Small devices (tablets, 768px and up)  */
+/* Small devices (tablets, 480px and up)  */
 /*******************************************/
 
 @media screen and (max-width: 480px) {
@@ -235,7 +295,7 @@ label {
 }
 
 /*******************************************/
-/* Medium devices (desktops, 800px and up) */
+/* Medium devices (desktops, 768px and up) */
 /*******************************************/
 
 @media screen and (min-width: 800px) {

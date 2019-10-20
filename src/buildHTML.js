@@ -110,7 +110,7 @@ export function displayMovies(movies) {
     removeSpinner();
 
     // Display movies on screen
-    document.getElementById('movie-list').innerHTML = html;
+    document.getElementById('right-pane').innerHTML = html;
 
     // Add Event listeners for the delete and the update buttons included in the cards
     for (let i = 0; i < idArray.length; i++) {
@@ -148,7 +148,7 @@ export function displayMovie(movie) {
             movieCardHTML += buildMovieCard(title, rating, id, urlPoster);
             movieCardHTML += `</div >`;
             //console.log(movieCardHTML);
-            document.getElementById('movie-list').innerHTML += movieCardHTML;
+            document.getElementById('right-pane').innerHTML += movieCardHTML;
              //Add Event listeners for the delete and the update buttons included in the cards
             addDeleteButtonCard(id, title);
             addUpdateButtonCard(id);

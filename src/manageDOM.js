@@ -14,16 +14,19 @@ function initForm() {
 
     starsUpdateForm();
 
+    displayCorrectHeadings();
+
+
 }
 
 function displaySpinner() {
     document.getElementById('loader').style.display = 'block';
-    document.getElementById('myDiv').style.display = 'none';
+    document.getElementById('main-div').style.display = 'none';
 }
 
 function removeSpinner() {
     document.getElementById('loader').style.display = 'none';
-    document.getElementById('myDiv').style.display = 'block';
+    document.getElementById('main-div').style.display = 'block';
 }
 
 function clearAddMovie() {
@@ -78,4 +81,19 @@ function displayMessage(title, option){
     }, 3000);
 }
 
+function displayCorrectHeadings(){
+    if (window.outerWidth <= 480) {
+        $('#movie-fields').toggle();
+
+        $('#addMovieForm').click(function () {
+            //document.getElementById("arrowAddMovie").style.class = "fas fa-angle-double-down";
+            $(this).next().toggle();
+
+        })
+    } else {
+        document.getElementById('arrowAddMovie').style.display = 'none';
+       // $("#arrowAddMovie").style().css('display', 'none');
+        //console.log($("#arrowAddMovie"));
+    }
+}
 export {displaySpinner, clearAddMovie, removeSpinner, initForm, displayMessage}

@@ -12,6 +12,7 @@ import {initForm} from "./manageDOM";
  * Initialize the form
  */
 initForm();
+
 let movieTitleArray = [];
 let movieIdArray = [];
 
@@ -72,6 +73,8 @@ function removeMovieList(id) {
 getMovieList().then(movies => {
     displayMovies(movies)
 });
+
+
 
 export {addMovieArray, checkDuplicateMovie, removeMovieList}
 

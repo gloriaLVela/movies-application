@@ -8,140 +8,130 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower%7CSource+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/style.css"/>
-    <!--    <script src="src/keys.js"></script>-->
-    <script src="../src/keys.js"></script>
     <script src="jquery.js"></script>
 
 </head>
 <body id='test'>
 <div id="loader"></div>
-<div class="container mh-100" style="display: none" id="myDiv">
-    <div class="col-md-12 text-center"><h1 style="align-content: center">MOVIE RATINGS</h1></div>
-    <div id="movie-content">
+<article class="container mh-100" style="display: none" id="main-div">
+    <header class="col-md-12 text-center"><h1 style="align-content: center">MOVIE RATINGS</h1></header>
+    <section id="movie-content">
+        <!-- Left side -->
+        <section id="left-pane">
+            <form>
+                <h5 style="text-align: center;" id="addMovieForm">ADD MOVIE &nbsp; <i id="arrowAddMovie" class="fas fa-angle-double-down"></i></h5>
+                <div id="movie-fields">
+                    <!--                    <li>-->
+                    <label>Movie Name</label>
+                    <input class="form-control" type="text" id="movie-name" name="movie-name"><br>
+                    <div class="text-center mb-3 star-size add-movie-stars" id="add-stars">
+                        <span class="fa fa-star" id="star1"></span>
+                        <span class="fa fa-star" id="star2"></span>
+                        <span class="fa fa-star" id="star3"></span>
+                        <span class="fa fa-star" id="star4"></span>
+                        <span class="fa fa-star" id="star5"></span>
+                    </div>
+                    <input class=" btn btn-success btn-lg btn-block dark-blue" id="add-movie" type="submit"/>
+                </div>
+            </form>
+            <hr>
 
-        <div id="main-div">
+            <form>
+                <h5 style="text-align: center">SEARCH MOVIE</h5>
 
-            <!-- Left side -->
-            <div id="left-pane">
-                <div>
-
-                    <form>
-                        <h5 style="text-align: center;">ADD MOVIE</h5>
-                        <label>Movie Name</label>
-                        <input class="form-control" type="text" id="movie-name" name="movie-name"><br>
-                        <input type="hidden" id="rating">
-                        <div class="text-center mb-3 star-size add-movie-stars" id="add-stars">
-                            <span class="fa fa-star" id="star1"></span>
-                            <span class="fa fa-star" id="star2"></span>
-                            <span class="fa fa-star" id="star3"></span>
-                            <span class="fa fa-star" id="star4"></span>
-                            <span class="fa fa-star" id="star5"></span>
+                <div id="search-rating">
+                    <div id="movie-rating">
+                        <div><label><h6 style="color: cadetblue" id="ratingID">Rating &nbsp;<i id="arrowRating" class="fas fa-angle-double-down"></i></h6></label></div>
+                        <div id="rating-options" class="hide-elements">
+                            <div><input type="checkbox" value="G" id="G" class="movie-rating"
+                                        name="movie-rating">&nbsp;<label
+                                    for="G"> G</label></div>
+                            <div><input type="checkbox" value="N/A" id="NA" class="movie-rating"
+                                        name="movie-rating">&nbsp;<label
+                                    for="NA"> N/A</label></div>
+                            <div><input type="checkbox" value="PG" id="PG" class="movie-rating"
+                                        name="movie-rating">&nbsp;<label
+                                    for="PG">PG</label></div>
+                            <div><input type="checkbox" value="PG-13" id="PG13" class="movie-rating"
+                                        name="movie-rating">&nbsp;<label
+                                    for="PG13">PG-13</label></div>
+                            <div><input type="checkbox" value="R" id="R" class="movie-rating"
+                                        name="movie-rating">&nbsp;<label
+                                    for="R">R</label></div>
                         </div>
-                        <input class=" btn btn-success btn-lg btn-block dark-blue" id="add-movie" type="submit"/>
-                    </form>
-                </div>
-                <hr>
-                <div>
-
-                    <form>
-                        <h5 style="text-align: center">SEARCH MOVIE</h5>
-
-                        <div id="search-rating">
-                            <div id="movie-rating">
-                                <div><label><h6 style="color: cadetblue" id="ratingID">Rating</h6></label></div>
-                                <div id="rating-options" class="hide-elements">
-                                    <div><input type="checkbox" value="G" id="G" class="movie-rating"
-                                                name="movie-rating">&nbsp;<label
-                                            for="G"> G</label></div>
-                                    <div><input type="checkbox" value="N/A" id="NA" class="movie-rating"
-                                                name="movie-rating">&nbsp;<label
-                                            for="NA"> N/A</label></div>
-                                    <div><input type="checkbox" value="PG" id="PG" class="movie-rating"
-                                                name="movie-rating">&nbsp;<label
-                                            for="PG">PG</label></div>
-                                    <div><input type="checkbox" value="PG-13" id="PG13" class="movie-rating"
-                                                name="movie-rating">&nbsp;<label
-                                            for="PG13">PG-13</label></div>
-                                    <div><input type="checkbox" value="R" id="R" class="movie-rating"
-                                                name="movie-rating">&nbsp;<label
-                                            for="R">R</label></div>
-                                </div>
-                                <input type="hidden" id="selectedRating" value="">
+                        <input type="hidden" id="selectedRating" value="">
+                    </div>
+                    <div><label><h6 style="color: cadetblue" id="genreID">Genre &nbsp;<i id="arrowGenre" class="fas fa-angle-double-down"></i></h6></label>
+                        <div id="genre-options" class="hide-elements">
+                            <div><input type="checkbox" value="Action" id="Action" class="genre">&nbsp;
+                                <label for="Action">Action</label>
                             </div>
-                            <div><label><h6 style="color: cadetblue" id="genreID">Genre</h6></label>
-                                <div id="genre-options" class="hide-elements">
-                                    <div><input type="checkbox" value="Action" id="Action" class="genre">&nbsp;
-                                        <label for="Action">Action</label>
-                                    </div>
-                                    <div><input type="checkbox" value="Adventure" id="Adventure"
-                                                class="genre">&nbsp;<label
-                                            for="Adventure">Adventure</label>
-                                    </div>
-                                    <div><input type="checkbox" value="Drama" id="Drama"
-                                                class="genre">&nbsp;<label
-                                            for="Drama">Drama</label>
-                                    </div>
-                                    <div><input type="checkbox" value="Fantasy" id="Fantasy"
-                                                class="genre">&nbsp;<label
-                                            for="Fantasy">Fantasy</label>
-
-                                    </div>
-                                    <div><input type="checkbox" value="Sci-Fi" id="Sci-Fi"
-                                                class="genre">&nbsp;<label
-                                            for="Sci-Fi">Sci-Fi</label>
-                                    </div>
-                                    <div><input type="checkbox" value="Comedy" id="Comedy"
-                                                class="genre">&nbsp;<label
-                                            for="Comedy">Comedy</label>
-                                    </div>
-                                    <div><input type="checkbox" value="Short" id="Short"
-                                                class="genre">&nbsp;<label
-                                            for="Short">Short</label>
-                                    </div>
-                                    <div><input type="checkbox" value="Romance" id="Romance"
-                                                class="genre">&nbsp;<label
-                                            for="Romance">Romance</label>
-                                    </div>
-                                    <div><input type="checkbox" value="Animation" id="Animation" class="genre">
-                                        Animation
-                                    </div>
-                                    <div><input type="checkbox" value="Family" id="Family" class="genre"> Family
-                                    </div>
-                                    <div><input type="checkbox" value="Musical" id="Musical" class="genre">
-                                        Musical
-                                    </div>
-                                    <input type="hidden" id="selectedGenre" value="">
-                                </div>
+                            <div><input type="checkbox" value="Adventure" id="Adventure"
+                                        class="genre">&nbsp;<label
+                                    for="Adventure">Adventure</label>
                             </div>
+                            <div><input type="checkbox" value="Drama" id="Drama"
+                                        class="genre">&nbsp;<label
+                                    for="Drama">Drama</label>
+                            </div>
+                            <div><input type="checkbox" value="Fantasy" id="Fantasy"
+                                        class="genre">&nbsp;<label
+                                    for="Fantasy">Fantasy</label>
+
+                            </div>
+                            <div><input type="checkbox" value="Sci-Fi" id="Sci-Fi"
+                                        class="genre">&nbsp;<label
+                                    for="Sci-Fi">Sci-Fi</label>
+                            </div>
+                            <div><input type="checkbox" value="Comedy" id="Comedy"
+                                        class="genre">&nbsp;<label
+                                    for="Comedy">Comedy</label>
+                            </div>
+                            <div><input type="checkbox" value="Short" id="Short"
+                                        class="genre">&nbsp;<label
+                                    for="Short">Short</label>
+                            </div>
+                            <div><input type="checkbox" value="Romance" id="Romance"
+                                        class="genre">&nbsp;<label
+                                    for="Romance">Romance</label>
+                            </div>
+                            <div><input type="checkbox" value="Animation" id="Animation" class="genre">
+                                Animation
+                            </div>
+                            <div><input type="checkbox" value="Family" id="Family" class="genre"> Family
+                            </div>
+                            <div><input type="checkbox" value="Musical" id="Musical" class="genre">
+                                Musical
+                            </div>
+                            <input type="hidden" id="selectedGenre" value="">
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-            <!-- Right side -->
-            <div id="right-pane">
-                <div id="movie-list">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+            </form>
+        </section>
+        <!-- Right side -->
+        <section id="right-pane">
+        </section>
+    </section>
+</article>
 <!-- Modal -->
 
 <!-- Non-destructive -->
 
 <div class="modal fade custom" id="non-destructive-message">
-        <div class="modal-dialog">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
             </div>
-            <div class="alert alert-success" id ="success">
+            <div class="alert alert-success" id="success">
             </div>
-            <div class="alert alert-warning" id ="warning">
+            <div class="alert alert-warning" id="warning">
             </div>
-            <div class="alert alert-danger" id ="danger">
+            <div class="alert alert-danger" id="danger">
             </div>
         </div>
     </div>
@@ -204,7 +194,7 @@
     </div>
 </div>
 
-
+<input type="hidden" id="rating">
 <input type="hidden" id="lastID" value="0">
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

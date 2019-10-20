@@ -38,7 +38,8 @@ export function selectMovieRatings() {
             });
         })
 
-    };
+    }
+    ;
 }
 
 /**
@@ -213,6 +214,11 @@ document.getElementById('genreID').addEventListener('click', event => {
 });
 
 
+document.getElementById('addMovieForm').addEventListener('click', e => {
+    if (window.outerWidth <= 480) {
+
+    }
+});
 
 
 

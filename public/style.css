@@ -54,19 +54,28 @@ label {
 
 #loader {
     min-height: 100%;
-    background: url('img/movie_projector.gif') no-repeat;
+    background: url('img/13-loading.gif') no-repeat;
     background-size: 100%;
 }
 
 #main-div {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    width: 100%;
+}
+
+/*#main-div {*/
+/*    display: grid;*/
+/*    grid-template-columns: 25% 75%;*/
+/*    grid-gap: 2em;*/
+/*}*/
+
+#movie-content {
     display: grid;
     grid-template-columns: 25% 75%;
     grid-gap: 2em;
-}
-
-#movie-content {
-    width: 100%;
-    border-radius: 1em;
+    /*width: 100%;*/
+    /*border-radius: 1em;*/
 }
 
 #right-pane {
@@ -81,7 +90,7 @@ label {
 /*Elements by class name*/
 
 .boxLoading {
-    background-image: url(img/movie_projector.gif);
+    background-image: url(img/13-loading.gif);
 }
 
 .card-body {
@@ -124,11 +133,11 @@ label {
 }
 
 .modal.custom .modal-dialog {
-    width:100%;
-    position:fixed;
-    bottom:0;
-    right:0;
-    margin:0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0;
 }
 
 .star-size {
@@ -171,6 +180,10 @@ label {
 /*******************************************/
 
 @media screen and (max-width: 480px) {
+
+    form{
+        margin-bottom: 0;
+    }
     .card {
         display: flex;
         align-content: center;
@@ -204,23 +217,24 @@ label {
         margin-bottom: .25em;
     }
 
-    #main-div {
+    #movie-content {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
+
     #right-pane {
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        /*justify-content: flex-start;*/
         flex-wrap: wrap;
-    }
+        /*}*/
 
-    #movie-list {
+        /*#movie-list {*/
         max-height: 100vh;
-        display: flex;
-        flex-wrap: wrap;
+        /*display: flex;*/
+        /*flex-wrap: wrap;*/
         justify-content: space-around;
         /*align-content: flex-start;*/
     }
@@ -260,21 +274,28 @@ label {
         margin-bottom: .25em;
     }
 
-    #movie-list {
+    #movie-fields {
+        display: block;
+    }
+
+    #movie-poster-delete {
+        display: none;
+    }
+
+    #movie-poster-update {
+        display: none;
+    }
+
+    #newMovieInfo {
+        display: none;
+    }
+
+    #right-pane {
         max-height: 100vh;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
     }
-
-    #movie-poster-delete{
-        display: none;
-    }
-
-    #movie-poster-update{
-        display: none;
-    }
-
 }
 
 /*************************************************/
@@ -312,11 +333,15 @@ label {
         margin-right: 1.2em;
     }
 
-    #movie-poster-delete{
+    #movie-fields {
+        display: block;
+    }
+
+    #movie-poster-delete {
         display: none;
     }
 
-    #movie-list {
+    #right_pane {
         max-height: 100vh;
         display: flex;
         flex-wrap: wrap;
@@ -324,7 +349,7 @@ label {
         align-content: flex-start;
     }
 
-    #movie-poster-update{
+    #movie-poster-update {
         display: none;
     }
 }

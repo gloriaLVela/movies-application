@@ -78,13 +78,7 @@ label {
     /*border-radius: 1em;*/
 }
 
-#right-pane {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    max-height: 100%;
-    overflow: auto;
-}
+
 
 
 /*Elements by class name*/
@@ -241,10 +235,10 @@ label {
 }
 
 /*******************************************/
-/* Medium devices (desktops, 992px and up) */
+/* Medium devices (desktops, 800px and up) */
 /*******************************************/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 800px) {
     .card-title {
         display: none;
     }
@@ -260,7 +254,7 @@ label {
     }
 
     .card {
-        display: flex;
+        /*display: flex;*/
         align-content: center;
         padding: .5em;
         height: 100%;
@@ -272,6 +266,12 @@ label {
         border: 2em;
         margin-top: .5em;
         margin-bottom: .25em;
+    }
+
+    #movie-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     #movie-fields {
@@ -295,6 +295,7 @@ label {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        overflow: auto;
     }
 }
 
@@ -302,7 +303,7 @@ label {
 /* Large devices (large desktops, 1200px and up) */
 /*************************************************/
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 990px) {
     .card {
         display: flex;
         align-content: center;
@@ -333,6 +334,17 @@ label {
         margin-right: 1.2em;
     }
 
+
+    #movie-content {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-gap: 2em;
+        overflow: hidden;
+        height: 100vh;
+
+    }
+
+
     #movie-fields {
         display: block;
     }
@@ -341,15 +353,27 @@ label {
         display: none;
     }
 
+    #movie-poster-update {
+        display: none;
+    }
+
     #right_pane {
+        /*max-height: 100vh;*/
         max-height: 100vh;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-content: flex-start;
+        /*position: relative;*/
+        /*overflow: auto;*/
+        overflow: auto;
+        /*overflow: hidden;*/
+        height: 100vh;
+        /*height: auto;*/
+        /*padding: .5rem;*/
+        /*-webkit-overflow-scrolling: touch;*/
+        /*-ms-overflow-style: none;*/
+        /*height:calc(100% - 100vh);*/
     }
 
-    #movie-poster-update {
-        display: none;
-    }
 }

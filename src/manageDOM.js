@@ -4,6 +4,8 @@ import {selectMovieRatings, selectMovieGenre, starsAddForm, starsUpdateForm} fro
  *
  * Purpose : Functions to handle the DOM
  */
+
+
 function initForm() {
 
     selectMovieRatings();

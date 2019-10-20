@@ -6,6 +6,7 @@ import {displayMovies} from './buildHTML';
  *
  * Purpose: Add the event listeners
  */
+let addMovieArrowDown = true;
 
 
 /**
@@ -197,8 +198,10 @@ document.getElementById('cancelDelete').addEventListener('click', event => {
 document.getElementById('ratingID').addEventListener('click', event => {
     if (document.getElementById('rating-options').className === 'hide-elements') {
         document.getElementById('rating-options').className = "";
+        document.getElementById('arrowRating').className = "fas fa-angle-double-up";
     } else {
         document.getElementById('rating-options').className = 'hide-elements';
+        document.getElementById('arrowRating').className = "fas fa-angle-double-down";
     }
     ;
 });
@@ -207,16 +210,23 @@ document.getElementById('ratingID').addEventListener('click', event => {
 document.getElementById('genreID').addEventListener('click', event => {
     if (document.getElementById('genre-options').className === 'hide-elements') {
         document.getElementById('genre-options').className = "";
+        document.getElementById('arrowGenre').className = "fas fa-angle-double-up";
     } else {
         document.getElementById('genre-options').className = 'hide-elements';
+        document.getElementById('arrowGenre').className = "fas fa-angle-double-down";
     }
     ;
 });
 
 
-document.getElementById('addMovieForm').addEventListener('click', e => {
-    if (window.outerWidth <= 480) {
-
+document.getElementById('arrowAddMovie').addEventListener('click', e => {
+    if (addMovieArrowDown) {
+        addMovieArrowDown = false;
+        document.getElementById('arrowAddMovie').className = "fas fa-angle-double-up";
+    }
+    else {
+        document.getElementById('arrowAddMovie').className = "fas fa-angle-double-down";
+        addMovieArrowDown = true;
     }
 });
 

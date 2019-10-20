@@ -222,7 +222,14 @@ document.getElementById('genreID').addEventListener('click', event => {
 document.getElementById('arrowAddMovie').addEventListener('click', e => {
     if (addMovieArrowDown) {
         addMovieArrowDown = false;
+
         document.getElementById('arrowAddMovie').className = "fas fa-angle-double-up";
+
+        window.setTimeout(function ()
+        {
+            document.getElementById('movie-name').focus();
+        }, 0);
+
     }
     else {
         document.getElementById('arrowAddMovie').className = "fas fa-angle-double-down";

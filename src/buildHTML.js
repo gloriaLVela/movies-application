@@ -91,7 +91,6 @@ export function displayMovies(movies) {
 
     // Build rating stars
     let html = '';
-    //let index = 0;
     let idArray = [];
     let titleArray = [];
 

@@ -198,7 +198,6 @@ label {
 
 
     .movie-card {
-        background-color: #F4F1F1;
         width: 12em;
         border: 2em;
         margin-top: .5em;
@@ -259,7 +258,6 @@ label {
 
 
     .movie-card {
-        background-color: #F4F1F1;
         width: 12em;
         border: 2em;
         margin-top: .5em;
@@ -310,7 +308,6 @@ label {
     }
 
     .movie-card {
-        background-color: #F4F1F1;
         width: 12em;
         border: 2em;
         margin-top: .5em;
@@ -377,7 +374,6 @@ label {
     }
 
     .movie-card {
-        background-color: #F4F1F1;
         width: 12em;
         border: 2em;
         margin-top: .5em;
@@ -385,9 +381,6 @@ label {
     }
 
     #movie-content {
-        /*display: flex;*/
-        /*flex-direction: column;*/
-        /*width: 100%;*/
         display: grid;
         grid-template-columns: 25% 75%;
         grid-gap: 2em;
@@ -449,7 +442,6 @@ label {
 
 
     .movie-card {
-        background-color: #F4F1F1;
         width: 12em;
         border: 2em;
         margin: 1em;

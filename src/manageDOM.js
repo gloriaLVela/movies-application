@@ -94,8 +94,6 @@ function displayCorrectHeadings(){
         })
     } else {
         document.getElementById('arrowAddMovie').style.display = 'none';
-       // $("#arrowAddMovie").style().css('display', 'none');
-        //console.log($("#arrowAddMovie"));
     }
 }
 export {displaySpinner, clearAddMovie, removeSpinner, initForm, displayMessage}

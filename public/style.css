@@ -26,7 +26,6 @@ form {
 
 form h5 {
     font-family: "Oswald", Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
     color: #499CAF;
     font-weight: bolder;
 }
@@ -58,6 +57,12 @@ label {
 
 #main-div {
     width: 100%;
+}
+
+#movie-list-heading {
+    color: #499CAF;
+    font-weight: bolder;
+    text-align: center;
 }
 
 #movie-content {
@@ -158,14 +163,15 @@ label {
 
 
 /*******************************************/
-/* Small devices (tablets, 480px and up)  */
+/* Small devices (tablets, 480px and less) */
 /*******************************************/
 
 @media screen and (max-width: 480px) {
 
-    form{
+    form {
         margin-bottom: 0;
     }
+
     .card {
         display: flex;
         align-content: center;
@@ -218,14 +224,15 @@ label {
 
 
 /*******************************************/
-/* Small devices (tablets, 600px and up)  */
+/* Small devices (tablets, 600px and less) */
 /*******************************************/
 
 @media screen and (max-width: 600px) {
 
-    form{
+    form {
         margin-bottom: 0;
     }
+
     .card {
         display: flex;
         align-content: center;
@@ -275,6 +282,7 @@ label {
         overflow: auto;
     }
 }
+
 /*******************************************/
 /* Medium devices (tablets, 600px and up) */
 /*******************************************/
@@ -319,6 +327,7 @@ label {
         display: block;
     }
 
+
     #movie-poster-delete {
         display: none;
     }
@@ -338,6 +347,82 @@ label {
         justify-content: space-around;
         overflow: auto;
     }
+
+}
+
+/*******************************************/
+/* Medium devices (tablets, 800px and up) */
+/*******************************************/
+
+@media screen and (min-width: 800px) {
+    .card-title {
+        display: none;
+    }
+
+    .movie-poster {
+        max-width: 10em;
+        margin: 10px;
+        align-content: center;
+
+    }
+
+    .movie-poster-update {
+        display: none;
+    }
+
+    .card {
+        align-content: center;
+        padding: .5em;
+        height: 100%;
+    }
+
+    .movie-card {
+        background-color: #F4F1F1;
+        width: 12em;
+        border: 2em;
+        margin-top: .5em;
+        margin-bottom: .25em;
+    }
+
+    #movie-content {
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*width: 100%;*/
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-gap: 2em;
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    #movie-fields {
+        display: block;
+    }
+
+    #movie-list-heading {
+        display: none;
+    }
+
+    #movie-poster-delete {
+        display: none;
+    }
+
+    #movie-poster-update {
+        display: none;
+    }
+
+    #newMovieInfo {
+        display: none;
+    }
+
+    #right-pane {
+        max-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        overflow: auto;
+    }
+
 }
 
 /*************************************************/
@@ -349,7 +434,7 @@ label {
         display: flex;
         align-content: center;
         padding: .25em;
-        height: 100%;
+        height: 400px;
         box-shadow: .2em .2em .2em .2em #888888;
     }
 
@@ -359,8 +444,7 @@ label {
 
     .movie-poster {
         width: 100%;
-        height: 100%;
-        /*align-content: center;*/
+        height: auto;
     }
 
 
@@ -385,6 +469,10 @@ label {
 
     #movie-fields {
         display: block;
+    }
+
+    #movie-list-heading {
+        display: none;
     }
 
     #movie-poster-delete {

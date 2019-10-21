@@ -17,13 +17,19 @@
 </head>
 <body id='test'>
 <div id="loader"></div>
+
 <article class="container mh-100" style="display: none" id="main-div">
-    <header class="col-md-12 text-center"><h1 style="align-content: center">MOVIE RATINGS</h1></header>
+    <header class="col-md-12 text-center"><h1 style="align-content: center">Rate a Movie</h1></header>
+    <!-- ============ -->
+    <!-- Main section -->
+    <!-- ============ -->
     <section id="movie-content">
-        <!-- Left side -->
+        <!-- ============ -->
+        <!--  Left side   -->
+        <!-- ============ -->
         <section id="left-pane">
             <form>
-                <h5 style="text-align: center;" id="addMovieForm">ADD MOVIE &nbsp; <i id="arrowAddMovie" class="fas fa-angle-double-down"></i></h5>
+                <h5 style="text-align: center;" id="addMovieForm">Add Movie &nbsp; <i id="arrowAddMovie" class="fas fa-angle-double-down"></i></h5>
                 <div id="movie-fields">
                     <label>Movie Name</label>
                     <input class="form-control" type="text" id="movie-name" name="movie-name"><br>
@@ -40,11 +46,9 @@
             <hr>
 
             <form>
-<!--                <h5 style="text-align: center">SEARCH MOVIE</h5>-->
-
                 <div id="search-rating">
                     <div id="movie-rating">
-                        <div><label><h6 style="color: cadetblue" id="ratingID">Search by rating &nbsp;<i id="arrowRating" class="fas fa-angle-double-down"></i></h6></label></div>
+                        <div><label><h6 style="color: cadetblue" id="ratingID">Search by Rating &nbsp;<i id="arrowRating" class="fas fa-angle-double-down"></i></h6></label></div>
                         <div id="rating-options" class="hide-elements">
                             <div><input type="checkbox" value="G" id="G" class="movie-rating"
                                         name="movie-rating">&nbsp;<label
@@ -64,7 +68,7 @@
                         </div>
                         <input type="hidden" id="selectedRating" value="">
                     </div>
-                    <div><label><h6 style="color: cadetblue" id="genreID">Search by genre &nbsp;<i id="arrowGenre" class="fas fa-angle-double-down"></i></h6></label>
+                    <div><label><h6 style="color: cadetblue" id="genreID">Search by Genre &nbsp;<i id="arrowGenre" class="fas fa-angle-double-down"></i></h6></label>
                         <div id="genre-options" class="hide-elements">
                             <div><input type="checkbox" value="Action" id="Action" class="genre">&nbsp;
                                 <label for="Action">Action</label>
@@ -111,13 +115,21 @@
                     </div>
                 </div>
             </form>
+            <div id="movie-list-heading">
+                <hr>
+                <h5>Movie List</h5>
+            </div>
         </section>
-        <!-- Right side -->
+        <!-- ============ -->
+        <!--  Right side  -->
+        <!-- ============ -->
         <section id="right-pane">
         </section>
     </section>
 </article>
-<!-- Modal -->
+<!-- ============ -->
+<!--     Modal    -->
+<!-- ============ -->
 
 <!-- Non-destructive -->
 
@@ -136,12 +148,13 @@
         </div>
     </div>
 </div>
-
-<!-- Delete -->
+<!-- ============ -->
+<!--    Delete    -->
+<!-- ============ -->
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog ">
+        <div class="modal-content img-fluid">
             <div class="modal-header modal-form-title">
                 Delete movie
             </div>
@@ -157,11 +170,12 @@
         </div>
     </div>
 </div>
-
-<!-- Update -->
+<!-- ============ -->
+<!--    Update    -->
+<!-- ============ -->
 <div class="modal" tabindex="-1" role="dialog" id="update-form">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content img-fluid">
             <div class="modal-header">
                 <h5 class="modal-title modal-form-title">Update Movie</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -88,7 +88,6 @@ function displayCorrectHeadings(){
         $('#movie-fields').toggle();
 
         $('#addMovieForm').click(function () {
-            //document.getElementById("arrowAddMovie").style.class = "fas fa-angle-double-down";
             $(this).next().toggle();
 
         })

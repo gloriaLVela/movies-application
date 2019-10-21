@@ -19,7 +19,7 @@ function buildMovieCard(title, rating, id, urlPoster) {
     let html = "";
     html += `<div class="card">`;
     html += `<h6 class="card-title  text-center" > ${title} </h6>`;
-    html += `<div  id="div-img${id}" class="movie-poster" ><img src="${urlPoster}" id="img${id}" > </div>`;
+    html += `<div  id="div-img${id}" class="img-fluid movie-poster" ><img src="${urlPoster}" id="img${id}" > </div>`;
 
     let starHTML = "";
 

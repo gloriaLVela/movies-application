@@ -32,7 +32,6 @@ form h5 {
 }
 
 img {
-    width: 75px;
     max-width: 150px;
     margin: 10px;
     width: 100%;
@@ -45,10 +44,6 @@ label {
 /*************************************************/
 /*               Elements by Id                  */
 /*************************************************/
-
-#div-img {
-    align-content: center;
-}
 
 #left-pane {
     background-color: #F4F1F1;
@@ -292,6 +287,7 @@ label {
     .movie-poster {
         max-width: 10em;
         margin: 10px;
+        align-content: center;
 
     }
 
@@ -352,7 +348,7 @@ label {
     .card {
         display: flex;
         align-content: center;
-        padding: .5em;
+        padding: .25em;
         height: 100%;
         box-shadow: .2em .2em .2em .2em #888888;
     }
@@ -362,21 +358,19 @@ label {
     }
 
     .movie-poster {
-        margin: 10px;
+        margin-left: .45em;
         width: 100%;
         height: 100%;
+        align-content: center;
     }
 
-    .movie-poster-update {
-        display: none;
-    }
 
     .movie-card {
         background-color: #F4F1F1;
         width: 12em;
         border: 2em;
-        margin-bottom: 1em;
-        margin-right: 1.2em;
+        margin: 1em;
+        align-content: center;
     }
 
 

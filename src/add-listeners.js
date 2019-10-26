@@ -139,7 +139,7 @@ document.getElementById("add-movie").addEventListener('click', event => {
 /** Handle the update button in the card **/
 export function addUpdateButtonCard(id) {
     document.getElementById(`update${id}`).addEventListener('click', event => {
-        console.log(`update ${id}`);
+        // console.log(`update ${id}`);
         document.getElementById('currentMovieID').value = id;
         displayUpdateScreen(id);
     });
@@ -176,10 +176,8 @@ export function addDeleteButtonCard(id, title) {
 /** Handle the confirm delete **/
 $('#confirm-delete').on('show.bs.modal', function (e) {
     document.getElementById('confirmDeleteMovie').addEventListener('click', event => {
-        // alert('Delete movie ');
         let id = document.getElementById('currentMovieID').value;
-
-        var elem = document.querySelector(`#movie${id}`);
+        var elem = document.getElementById(`movie${id}`);
         elem.parentNode.removeChild(elem);
         deleteMovie(id);
         $("#confirm-delete").modal('toggle');

@@ -3,7 +3,7 @@
     {
       "id": 28,
       "title": "The Little Mermaid",
-      "rating": "5",
+      "rating": "4",
       "movieRated": "G",
       "genre": [
         "Animation",
@@ -14,83 +14,6 @@
       ],
       "year": "1989",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BN2JlZTBhYTEtZDE3OC00NTA3LTk5NTQtNjg5M2RjODllM2M0XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_SX300.jpg"
-    },
-    {
-      "id": 30,
-      "title": "Snow White and the Huntsman",
-      "rating": "5",
-      "movieRated": "PG-13",
-      "genre": [
-        "Action",
-        " Adventure",
-        " Drama",
-        " Fantasy"
-      ],
-      "year": "2012",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTQ1NDA0MTk5OV5BMl5BanBnXkFtZTcwMTM4NDMwNw@@._V1_SX300.jpg"
-    },
-    {
-      "id": 32,
-      "title": "101 Dalmatians",
-      "rating": "5",
-      "movieRated": "G",
-      "genre": [
-        "Animation",
-        " Adventure",
-        " Comedy",
-        " Family"
-      ],
-      "year": "1961",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BZGMyMjE4OGUtNGZmMC00YzdmLThkMWYtZWIzMmEzNjA4MzVkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-    },
-    {
-      "id": 34,
-      "title": "The Indian in the Cupboard",
-      "rating": "5",
-      "movieRated": "PG",
-      "genre": "",
-      "year": "1995",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BZWZlYmZiZGMtN2YyZC00MTdjLTllNjUtYWNhZDMwNDhhOTM1XkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_SX300.jpg"
-    },
-    {
-      "id": 35,
-      "title": "The Sandlot",
-      "rating": "5",
-      "movieRated": "PG",
-      "genre": "",
-      "year": "1993",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BODllYjM1ODItYjBmOC00MzkwLWJmM2YtMjMyZDU3MGJhNjc4L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-    },
-    {
-      "id": 37,
-      "title": "Sleeping Beauty",
-      "rating": "5",
-      "movieRated": "G",
-      "genre": "",
-      "year": "1959",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BOTJmZjA3MjMtMWNmZS00YTliLWFhMWUtZDU2NGJhNTlmY2ZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-    },
-    {
-      "id": 38,
-      "title": "Red Dawn",
-      "rating": "3",
-      "movieRated": "PG-13",
-      "genre": [
-        "Action",
-        " Sci-Fi",
-        " Thriller"
-      ],
-      "year": "2012",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMjI0MDAwMzA1M15BMl5BanBnXkFtZTcwNzIxMjY3OA@@._V1_SX300.jpg"
-    },
-    {
-      "id": 39,
-      "title": "Band of Brothers",
-      "rating": "4",
-      "movieRated": "TV-MA",
-      "genre": "",
-      "year": "2001",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTI3ODc2ODc0M15BMl5BanBnXkFtZTYwMjgzNjc3._V1_SX300.jpg"
     },
     {
       "id": 40,
@@ -133,15 +56,40 @@
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTkzOTgzNDYzOF5BMl5BanBnXkFtZTgwOTgxMTkyMjE@._V1_SX300.jpg"
     },
     {
-      "id": 43,
-      "title": "The Dust Bowl",
-      "rating": "5",
-      "movieRated": "N/A",
-      "genre": [
-        "Documentary"
-      ],
-      "year": "2012–",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTk2MjIzNjYxNF5BMl5BanBnXkFtZTgwNDI2NDAxMzE@._V1_SX300.jpg"
+      "title": "Snow White and the Huntsman",
+      "rating": "4",
+      "movieRated": "PG-13",
+      "genre": "",
+      "year": "2012",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTQ1NDA0MTk5OV5BMl5BanBnXkFtZTcwMTM4NDMwNw@@._V1_SX300.jpg",
+      "id": 43
+    },
+    {
+      "title": "The Lion King",
+      "rating": "3",
+      "movieRated": "G",
+      "genre": "",
+      "year": "1994",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg",
+      "id": 44
+    },
+    {
+      "title": "Sleeping Beauty",
+      "rating": "1",
+      "movieRated": "G",
+      "genre": "",
+      "year": "1959",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BOTJmZjA3MjMtMWNmZS00YTliLWFhMWUtZDU2NGJhNTlmY2ZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+      "id": 46
+    },
+    {
+      "title": "Red Dawn",
+      "rating": "3",
+      "movieRated": "PG-13",
+      "genre": "",
+      "year": "2012",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMjI0MDAwMzA1M15BMl5BanBnXkFtZTcwNzIxMjY3OA@@._V1_SX300.jpg",
+      "id": 47
     }
   ]
 }

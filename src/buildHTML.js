@@ -143,12 +143,13 @@ export function displayMovie(movie) {
         } else {
 
             // Create the card for the new movie and add it to the html
-            movieCardHTML = ` <div class="movie-card" id="movie${id}">`;
-            movieCardHTML += buildMovieCard(title, rating, id, urlPoster);
-            movieCardHTML += `</div >`;
-            //console.log(movieCardHTML);
-            document.getElementById('right-pane').innerHTML += movieCardHTML;
-             //Add Event listeners for the delete and the update buttons included in the cards
+            let child = document.createElement('div');
+            child.className = "movie-card";
+            child.id = `movie${id}`;
+            let html = buildMovieCard(title, rating, id, urlPoster);
+            child.insertAdjacentHTML('beforeend',html);
+            child = child.firstChild;
+            document.getElementById('right-pane').appendChild(child);
             addDeleteButtonCard(id, title);
             addUpdateButtonCard(id);
         }

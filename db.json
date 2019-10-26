@@ -3,7 +3,7 @@
     {
       "id": 28,
       "title": "The Little Mermaid",
-      "rating": "5",
+      "rating": "4",
       "movieRated": "G",
       "genre": [
         "Animation",
@@ -69,19 +69,6 @@
       "genre": "",
       "year": "1959",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BOTJmZjA3MjMtMWNmZS00YTliLWFhMWUtZDU2NGJhNTlmY2ZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-    },
-    {
-      "id": 38,
-      "title": "Red Dawn",
-      "rating": "3",
-      "movieRated": "PG-13",
-      "genre": [
-        "Action",
-        " Sci-Fi",
-        " Thriller"
-      ],
-      "year": "2012",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMjI0MDAwMzA1M15BMl5BanBnXkFtZTcwNzIxMjY3OA@@._V1_SX300.jpg"
     },
     {
       "id": 39,

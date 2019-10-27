@@ -183,6 +183,17 @@
       ],
       "year": "1985",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BZDRkOWQ5NGUtYTVmOS00ZjNhLWEwODgtOGI2MmUxNTBkMjU0XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"
+    },
+    {
+      "id": 54,
+      "title": "Blue Jasmine",
+      "rating": "5",
+      "movieRated": "PG-13",
+      "genre": [
+        "Drama"
+      ],
+      "year": "2013",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTc0ODk5MzEyMV5BMl5BanBnXkFtZTcwMzI0MDY1OQ@@._V1_SX300.jpg"
     }
   ]
 }

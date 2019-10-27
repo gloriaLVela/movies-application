@@ -1,6 +1,6 @@
 /**Retrieve movies from /api/movies (db.json) set-up in server.js*/
 import {getMovieInfoOmdbAPI} from './OMDB_API';
-import {displaySpinner, clearAddMovie, removeSpinner, displayMessage, hideUpdateModal} from './manageDOM';
+import {displaySpinner, clearAddMovie, removeSpinner, displayMessage} from './manageDOM';
 import {displayMovie} from "./buildHTML";
 import {addMovieArray, checkDuplicateMovie, removeMovieList} from './index.js';
 
@@ -206,7 +206,6 @@ const updateMovie = (e) => {
         title = data["Title"];
         if (typeof (title) === 'undefined') {
             removeSpinner();
-            //displayMessage(newMovieName, 4);
             messageNumber = 4;
             displayMessage(title, messageNumber);
         } else {

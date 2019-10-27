@@ -199,16 +199,17 @@ const updateMovie = (e) => {
     let year = "";
     let messageNumber = 5;
 
+    //
     //Get the movie information
+    //
     getMovieInfoOmdbAPI(title).then((data) => {
         title = data["Title"];
-        if (typeof(title) === 'undefined') {
+        if (typeof (title) === 'undefined') {
             removeSpinner();
             //displayMessage(newMovieName, 4);
             messageNumber = 4;
             displayMessage(title, messageNumber);
-        }
-        else {
+        } else {
             if (!checkDuplicateMovie(data["Title"], id)) {
                 urlPoster = data["Poster"];
                 movieRated = data["Rated"];
@@ -231,7 +232,7 @@ const updateMovie = (e) => {
                 if (typeof genre != "undefined") genre = currentGenre.split(",");
                 let title = data["Title"];
 
-                const updateMovie = {
+                const updatedMovie = {
                     id,
                     title,
                     rating,
@@ -248,19 +249,20 @@ const updateMovie = (e) => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(updateMovie),
+                    body: JSON.stringify(updatedMovie),
                 };
 
                 fetch(url, options)
                     .then(response => response.json())
-                    .then(newMovie => getMovieDB(newMovie.title)
-                        .then(newMovie => {displayMovie(newMovie);
-                            // Movie modified
-                            removeSpinner();
-                            messageNumber = 2;
-                             displayMessage(title, messageNumber);
-                        })
-                    )
+                    //.then(newMovie => getMovieDB(newMovie.title)
+                    .then(updatedMovie => {
+                        displayMovie([updatedMovie]);
+                        // Movie modified
+                        removeSpinner();
+                        messageNumber = 2;
+                        displayMessage(title, messageNumber);
+                    })
+                    // )
                     .catch(() => {
                         // Error with the movie
                         removeSpinner();
@@ -268,7 +270,6 @@ const updateMovie = (e) => {
                         displayMessage(title, messageNumber);
 
                     });
-                //displayMessage(title, messageNumber);
 
             } else {
                 removeSpinner();
@@ -279,7 +280,6 @@ const updateMovie = (e) => {
             }
         }
     });
-
 
 
 }

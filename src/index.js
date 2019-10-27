@@ -45,6 +45,7 @@ function checkDuplicateMovie(title, id) {
     for (let i = 0; i < movieTitleArray.length;  i++ ){
         if ( movieTitleArray[i] == title) {
             currentIndex = i;
+
         }
     }
     // New movie

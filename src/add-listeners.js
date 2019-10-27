@@ -1,6 +1,14 @@
-import {addMovie, updateMovie, getMovieList, deleteMovie, displayUpdateScreen, getMovieInfoId} from './api';
+import {addMovie, updateMovie, getMovieList, deleteMovie, displayUpdateScreen, getMovieInfoId, getMovieDB} from './api';
 
-import {displayMovies} from './buildHTML';
+import {displayMovies, displayMovie} from './buildHTML';
+import {
+    displaySpinner,
+    clearAddMovie,
+    removeSpinner,
+    displayMessage,
+    displayUpdateModal,
+    hideUpdateModal
+} from './manageDOM';
 
 /**
  *
@@ -141,20 +149,42 @@ export function addUpdateButtonCard(id) {
     document.getElementById(`update${id}`).addEventListener('click', event => {
         // console.log(`update ${id}`);
         document.getElementById('currentMovieID').value = id;
-        displayUpdateScreen(id);
+        displayUpdateScreen(id)
+            .then(movie => {
+                let {title, rating, id, urlPoster} = movie;
+                //setup the update movie modal
+                // movie-poster-update
+                document.getElementById("old-name").innerText = "Current title :" + title;
+                document.getElementById("new-name").value = title;
+                document.getElementById("new-rating").value = rating;
+                document.getElementById("updateMovieID").value = id;
+                document.getElementById("movie-poster-update").src = urlPoster;
+
+                //changes stars to black
+                for (let i = 1; i <= 5; i++) {
+                    let cur = document.getElementById("update-star" + i)
+                    cur.className = "fa fa-star"
+                }
+                //change stars to orange
+                for (let i = 1; i <= rating; i++) {
+                    let cur = document.getElementById("update-star" + i)
+                    if (cur.className == "fa fa-star") {
+                        cur.className = "fa fa-star checked"
+                    }
+                }
+                displayUpdateModal();
+            });
+
     });
 
 }
 
 /** Handle the confirm update **/
-$('#update-form').on('show.bs.modal', function (e) {
-    document.getElementById('confirmUpdateMovie').addEventListener('click', event => {
-        let id = document.getElementById('currentMovieID').value;
-        updateMovie(event);
-
-
-    });
-
+document.getElementById('confirmUpdateMovie').addEventListener('click', event => {
+    let id = document.getElementById('currentMovieID').value;
+    hideUpdateModal();
+    displaySpinner();
+    updateMovie(event);
 });
 
 
@@ -177,8 +207,13 @@ export function addDeleteButtonCard(id, title) {
 $('#confirm-delete').on('show.bs.modal', function (e) {
     document.getElementById('confirmDeleteMovie').addEventListener('click', event => {
         let id = document.getElementById('currentMovieID').value;
-        var elem = document.getElementById(`movie${id}`);
-        elem.parentNode.removeChild(elem);
+        // var elem = document.getElementById(`movie${id}`);
+        // document.getElementById('right-pane').removeChild(elem);
+        let elem = document.querySelector(`#movie${id}`);
+        if (elem != null) {
+            elem.parentNode.removeChild(elem);
+        }
+        //elem.parentNode.removeChild(elem);
         deleteMovie(id);
         $("#confirm-delete").modal('toggle');
 
@@ -223,13 +258,11 @@ document.getElementById('arrowAddMovie').addEventListener('click', e => {
 
         document.getElementById('arrowAddMovie').className = "fas fa-angle-double-up";
 
-        window.setTimeout(function ()
-        {
+        window.setTimeout(function () {
             document.getElementById('movie-name').focus();
         }, 0);
 
-    }
-    else {
+    } else {
         document.getElementById('arrowAddMovie').className = "fas fa-angle-double-down";
         addMovieArrowDown = true;
     }

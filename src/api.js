@@ -1,6 +1,6 @@
 /**Retrieve movies from /api/movies (db.json) set-up in server.js*/
 import {getMovieInfoOmdbAPI} from './OMDB_API';
-import {displaySpinner, clearAddMovie, removeSpinner, displayMessage} from './manageDOM';
+import {displaySpinner, clearAddMovie, removeSpinner, displayMessage, hideUpdateModal} from './manageDOM';
 import {displayMovie} from "./buildHTML";
 import {addMovieArray, checkDuplicateMovie, removeMovieList} from './index.js';
 
@@ -92,7 +92,7 @@ const addMovie = (e) => {
         if (currentGenre != undefined) currentGenre.split(",");
         let title = data["Title"];
         // Check if the movie exists in the database
-        if (typeof(title) === 'undefined') {
+        if (typeof (title) === 'undefined') {
             removeSpinner();
             displayMessage(newMovieName, 4);
         } else {
@@ -128,15 +128,14 @@ const addMovie = (e) => {
                             }
                         )
                     )
-                    .catch(() => {
-                        // Problem with the movie
-                        removeSpinner();
-                        displayMessage(title, 3);
+                    .catch(error => {
+                        console.log(error);
+                        throw(error);
                     });
 
-            }
-            else {
+            } else {
                 // The movie exists in the system
+                console.log('The movie exists in the system 2');
                 displayMessage(title, 3);
                 removeSpinner();
             }
@@ -173,37 +172,13 @@ const deleteMovie = (id) => {
 };
 
 /**
- * Update Movie
+ * Display Update Movie screen
  ** Step 1 Move data from display to update form
  * */
 const displayUpdateScreen = (id) => {
     // alert('Display update form');
     return fetch(`/api/movies/${id}`)
         .then(response => response.json())
-        .then(movie => {
-            let {title, rating, id, urlPoster} = movie;
-            //setup the update movie modal
-            // movie-poster-update
-            document.getElementById("old-name").innerText = "Current title :" + title;
-            document.getElementById("new-name").value = title;
-            document.getElementById("new-rating").value = rating;
-            document.getElementById("updateMovieID").value = id;
-            document.getElementById("movie-poster-update").src = urlPoster;
-
-            //changes stars to black
-            for (let i = 1; i <= 5; i++) {
-                let cur = document.getElementById("update-star" + i)
-                cur.className = "fa fa-star"
-            }
-            //change stars to orange
-            for (let i = 1; i <= rating; i++) {
-                let cur = document.getElementById("update-star" + i)
-                if (cur.className == "fa fa-star") {
-                    cur.className = "fa fa-star checked"
-                }
-            }
-            $('#update-form').modal('toggle');
-        });
 };
 
 /**
@@ -218,20 +193,20 @@ const updateMovie = (e) => {
     let newMovieName = title;
     clearAddMovie();
 
-    // Hide  update form
-    // $("#update-form").modal('toggle');
-
     let urlPoster = "";
     let movieRated = "";
     let currentGenre = "";
     let year = "";
+    let messageNumber = 5;
 
     //Get the movie information
     getMovieInfoOmdbAPI(title).then((data) => {
         title = data["Title"];
         if (typeof(title) === 'undefined') {
             removeSpinner();
-            displayMessage(newMovieName, 4);
+            //displayMessage(newMovieName, 4);
+            messageNumber = 4;
+            displayMessage(title, messageNumber);
         }
         else {
             if (!checkDuplicateMovie(data["Title"], id)) {
@@ -281,26 +256,31 @@ const updateMovie = (e) => {
                     .then(newMovie => getMovieDB(newMovie.title)
                         .then(newMovie => {displayMovie(newMovie);
                             // Movie modified
-                            $('#update-form').modal('toggle');
                             removeSpinner();
-                            displayMessage(title, 2);})
+                            messageNumber = 2;
+                             displayMessage(title, messageNumber);
+                        })
                     )
                     .catch(() => {
                         // Error with the movie
-                        $('#update-form').modal('toggle');
                         removeSpinner();
-                        displayMessage(newMovieName, 4)
+                        messageNumber = 4;
+                        displayMessage(title, messageNumber);
+
                     });
+                //displayMessage(title, messageNumber);
 
             } else {
-                $('#update-form').modal('toggle');
                 removeSpinner();
                 // Unable to modify the movie
-                displayMessage(title, 3);
+                messageNumber = 3;
+                displayMessage(title, messageNumber);
 
             }
         }
     });
+
+
 
 }
 

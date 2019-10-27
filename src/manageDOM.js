@@ -5,6 +5,7 @@ import {selectMovieRatings, selectMovieGenre, starsAddForm, starsUpdateForm} fro
  * Purpose : Functions to handle the DOM
  */
 
+let updateModalStatus = false;
 
 function initForm() {
 
@@ -42,25 +43,34 @@ function clearAddMovie() {
 }
 
 function displayMessage(title, option){
+
+    let message = "";
+
     switch (option) {
 
         case 1: {
+            message = "The movie  '" + title + "' was added to the system.";
             document.getElementById('success').innerHTML = "The movie  '" + title + "' was added to the system.";
             document.getElementById('success').style.display = 'block';
             document.getElementById('warning').style.display = 'none';
             document.getElementById('danger').style.display = 'none';
+
             break;
         }
         case 2: {
+            message = "The modification to the movie  '" + title + "' is implemented.";
+
             document.getElementById('success').innerHTML = "The modification to the movie  '" + title + "' is implemented.";
             document.getElementById('success').style.display = 'block';
             document.getElementById('warning').style.display = 'none';
             document.getElementById('danger').style.display = 'none';
+
             break;
         }
         case 3:
         {
-           document.getElementById('warning').innerHTML = "The movie '" + title + "' exists in the system.";
+            message = "The movie '" + title + "' exists in the system.";
+            document.getElementById('warning').innerHTML = "The movie '" + title + "' exists in the system.";
             document.getElementById('warning').style.display = 'block';
             document.getElementById('success').style.display = 'none';
             document.getElementById('danger').style.display = 'none';
@@ -68,19 +78,38 @@ function displayMessage(title, option){
 
         }
         case 4 : {
+            message = "The movie " + title + " does not exists in the database.";
             document.getElementById('danger').innerHTML = "The movie " + title + " does not exists in the database.";
             document.getElementById('danger').style.display = 'block';
             document.getElementById('warning').style.display = 'none';
             document.getElementById('success').style.display = 'none';
+
             break;
 
         }
     }
-     $('#non-destructive-message').modal('toggle');
+    $('#non-destructive-message').modal('show');
 
     let timeoutId = setTimeout(function () {
-        $('#non-destructive-message').modal('toggle')
-    }, 3000);
+        $('#non-destructive-message').modal('hide')
+    }, 1000);
+
+}
+
+function displayUpdateModal(){
+    if (updateModalStatus) {
+        alert('screen was displayed');
+    }
+    updateModalStatus = true;
+    $('#update-form').modal('toggle');
+}
+
+function hideUpdateModal(){
+    if (!updateModalStatus){
+    }
+    updateModalStatus = false;
+    $('#update-form').modal('toggle');
+
 }
 
 function displayCorrectHeadings(){
@@ -95,4 +124,4 @@ function displayCorrectHeadings(){
         document.getElementById('arrowAddMovie').style.display = 'none';
     }
 }
-export {displaySpinner, clearAddMovie, removeSpinner, initForm, displayMessage}
+export {displaySpinner, clearAddMovie, removeSpinner, initForm, displayMessage,  displayUpdateModal, hideUpdateModal}

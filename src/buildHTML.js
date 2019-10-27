@@ -130,12 +130,13 @@ export function displayMovie(movie) {
 
     let movieCardHTML = "";
 
+    // console.log(movie);
     // Find if we are going to display the movie
     if (includeThisMovie(genre, movieRated)) {
 
         // Update or add movie
-        let element = !!document.getElementById(`movie${id}`);
-
+        let element = document.getElementById(`movie${id}`);
+        //console.log(element);
         // Update movie
         if (element) {
             document.getElementById(`movie${id}`).value = buildMovieCard(title, rating, id, urlPoster);
@@ -143,13 +144,17 @@ export function displayMovie(movie) {
         } else {
 
             // Create the card for the new movie and add it to the html
-            let child = document.createElement('div');
-            child.className = "movie-card";
-            child.id = `movie${id}`;
-            let html = buildMovieCard(title, rating, id, urlPoster);
-            child.insertAdjacentHTML('beforeend',html);
-            child = child.firstChild;
-            document.getElementById('right-pane').appendChild(child);
+
+            let movie_card = document.createElement('div');
+            // movie_card.class = "movie-card";
+            movie_card.setAttribute('class', 'movie-card');
+            movie_card.setAttribute('id', `movie${id}`);
+            movie_card.setAttribute('name', `movie${id}`);
+            //movie_card.appendChild(div);
+
+            document.getElementById('right-pane').appendChild(movie_card);
+            document.getElementById(`movie${id}`).innerHTML =  buildMovieCard(title, rating, id, urlPoster);
+            // console.log(document.getElementById(`movie${id}`));
             addDeleteButtonCard(id, title);
             addUpdateButtonCard(id);
         }

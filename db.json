@@ -3,7 +3,7 @@
     {
       "id": 28,
       "title": "The Little Mermaid",
-      "rating": "4",
+      "rating": "5",
       "movieRated": "G",
       "genre": [
         "Animation",
@@ -49,47 +49,129 @@
     {
       "id": 42,
       "title": "The Book of Life",
-      "rating": "2",
+      "rating": "5",
       "movieRated": "PG",
-      "genre": "",
+      "genre": [
+        "Animation",
+        " Adventure",
+        " Comedy",
+        " Family",
+        " Fantasy",
+        " Musical",
+        " Romance"
+      ],
       "year": "2014",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTkzOTgzNDYzOF5BMl5BanBnXkFtZTgwOTgxMTkyMjE@._V1_SX300.jpg"
     },
     {
+      "id": 43,
       "title": "Snow White and the Huntsman",
-      "rating": "4",
+      "rating": "5",
       "movieRated": "PG-13",
-      "genre": "",
+      "genre": [
+        "Action",
+        " Adventure",
+        " Drama",
+        " Fantasy"
+      ],
       "year": "2012",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTQ1NDA0MTk5OV5BMl5BanBnXkFtZTcwMTM4NDMwNw@@._V1_SX300.jpg",
-      "id": 43
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTQ1NDA0MTk5OV5BMl5BanBnXkFtZTcwMTM4NDMwNw@@._V1_SX300.jpg"
     },
     {
+      "id": 44,
       "title": "The Lion King",
-      "rating": "3",
+      "rating": "5",
       "movieRated": "G",
-      "genre": "",
+      "genre": [
+        "Animation",
+        " Adventure",
+        " Drama",
+        " Family",
+        " Musical"
+      ],
       "year": "1994",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg",
-      "id": 44
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg"
     },
     {
+      "id": 46,
       "title": "Sleeping Beauty",
-      "rating": "1",
+      "rating": "5",
       "movieRated": "G",
-      "genre": "",
+      "genre": [
+        "Animation",
+        " Family",
+        " Fantasy",
+        " Musical",
+        " Romance"
+      ],
       "year": "1959",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BOTJmZjA3MjMtMWNmZS00YTliLWFhMWUtZDU2NGJhNTlmY2ZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-      "id": 46
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BOTJmZjA3MjMtMWNmZS00YTliLWFhMWUtZDU2NGJhNTlmY2ZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
     },
     {
-      "title": "Red Dawn",
-      "rating": "3",
+      "id": 48,
+      "title": "The Matrix",
+      "rating": "5",
+      "movieRated": "R",
+      "genre": [
+        "Action",
+        " Sci-Fi"
+      ],
+      "year": "1999",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+    },
+    {
+      "id": 49,
+      "title": "The Other Guys",
+      "rating": "5",
       "movieRated": "PG-13",
-      "genre": "",
-      "year": "2012",
-      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMjI0MDAwMzA1M15BMl5BanBnXkFtZTcwNzIxMjY3OA@@._V1_SX300.jpg",
-      "id": 47
+      "genre": [
+        "Action",
+        " Comedy",
+        " Crime"
+      ],
+      "year": "2010",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTc0NDQzNTA2Ml5BMl5BanBnXkFtZTcwNzI2OTQzMw@@._V1_SX300.jpg"
+    },
+    {
+      "id": 50,
+      "title": "Live Free or Die Hard",
+      "rating": "2",
+      "movieRated": "PG-13",
+      "genre": [
+        "Action",
+        " Thriller"
+      ],
+      "year": "2007",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BNDQxMDE1OTg4NV5BMl5BanBnXkFtZTcwMTMzOTQzMw@@._V1_SX300.jpg"
+    },
+    {
+      "id": 51,
+      "title": "The Hunt for Red October",
+      "rating": "5",
+      "movieRated": "PG",
+      "genre": [
+        "Action",
+        " Adventure",
+        " Thriller"
+      ],
+      "year": "1990",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BY2Y5NWVjMmQtMWRmOC00ZTg3LWI3YWQtZGI2MWUwNWQ4OWQ2XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg"
+    },
+    {
+      "id": 52,
+      "title": "Pocahontas",
+      "rating": "5",
+      "movieRated": "G",
+      "genre": [
+        "Animation",
+        " Adventure",
+        " Drama",
+        " Family",
+        " Musical",
+        " Romance"
+      ],
+      "year": "1995",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMzc4YzhiN2ItY2Y4NC00YTA0LWEyMjEtNzllNTcxZDdjODhiXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg"
     }
   ]
 }

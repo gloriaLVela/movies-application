@@ -172,6 +172,17 @@
       ],
       "year": "1995",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BMzc4YzhiN2ItY2Y4NC00YTA0LWEyMjEtNzllNTcxZDdjODhiXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg"
+    },
+    {
+      "id": 53,
+      "title": "The Color Purple",
+      "rating": "5",
+      "movieRated": "PG-13",
+      "genre": [
+        "Drama"
+      ],
+      "year": "1985",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BZDRkOWQ5NGUtYTVmOS00ZjNhLWEwODgtOGI2MmUxNTBkMjU0XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"
     }
   ]
 }

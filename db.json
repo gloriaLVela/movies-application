@@ -194,6 +194,33 @@
       ],
       "year": "2013",
       "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTc0ODk5MzEyMV5BMl5BanBnXkFtZTcwMzI0MDY1OQ@@._V1_SX300.jpg"
+    },
+    {
+      "title": "Nosotros los pobres",
+      "rating": "5",
+      "movieRated": "Not Rated",
+      "genre": "",
+      "year": "1948",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTQwNTNkOTUtODFjMy00ODI5LTliMzQtMDNhZmM5MGE0NjkzXkEyXkFqcGdeQXVyMTk4MDgwNA@@._V1_SX300.jpg",
+      "id": 55
+    },
+    {
+      "title": "Rocky",
+      "rating": "2",
+      "movieRated": "PG",
+      "genre": "",
+      "year": "1976",
+      "urlPoster": "https://m.media-amazon.com/images/M/MV5BMTY5MDMzODUyOF5BMl5BanBnXkFtZTcwMTQ3NTMyNA@@._V1_SX300.jpg",
+      "id": 56
+    },
+    {
+      "title": "Have You Talked to the Others?: An Interview with Paul Hirsch",
+      "rating": "3",
+      "movieRated": "N/A",
+      "genre": "",
+      "year": "2016",
+      "urlPoster": "N/A",
+      "id": 57
     }
   ]
 }
